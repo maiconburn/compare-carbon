@@ -1,65 +1,59 @@
-import Head from 'next/head'
+import React from 'react'
+import Container from '@material-ui/core/Container'
+import Typography from '@material-ui/core/Typography'
+import Box from '@material-ui/core/Box'
+import TopBar from './TopBar'
+import Image from 'next/image'
+import Button from '@material-ui/core/Button'
+import Grid from '@material-ui/core/Grid'
+import Paper from '@material-ui/core/Paper'
+import Map from '../components/Map'
 import styles from '../styles/Home.module.css'
 
-export default function Home() {
+export default function Index() {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
+    <>
+      <TopBar />
+      <Container maxWidth="lg">
+        <Box xs='12'>
+            <Image
+              className={styles.bgWrap}
+              alt="Amazon"
+              src="/img/amazon.jpg"
+              layout="fill"
+              objectFit="cover"
+              quality={100}
+            />
+        </Box>
+        <Box xs='12' width="100%">
+          <Grid 
+            className={styles.bgText} 
+            container
+            direction="column"
+            alignItems="center"
+            justify="center"
           >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
+            <Grid xs='10'>
+              <Typography className={styles.bgText, styles.bgTitle} variant="h2">
+                Not all carbon credits are created equal
+              </Typography>
+            </Grid>
+            <Grid xs='9'>
+              <Typography className={styles.bgText, styles.bgSubTitle} variant="h5">
+                Our easy-to-use tool helps you to find the credits you’re looking for, by sorting different sellers on a range of factors including: price, project location and impact 
+              </Typography>
+            </Grid>
+            <Grid xs='12'>
+              <Button className={styles.bgButton} color="primary" variant="contained" size="large">Get Started</Button>
+            </Grid>
+            <Grid xs='12'>
+              <Paper className={styles.Map} elevation={3}>
+                <Map />
+              </Paper>
+            </Grid>
+          </Grid>
+        </Box>
+      </Container>
+    </>
   )
 }
