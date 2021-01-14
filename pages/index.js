@@ -167,11 +167,14 @@ export default function Index() {
             justify="center"
           >
             <Grid container xs='6'>
-              <Grid container justify="center" xs='6'>
+              <Grid container justify="center" xs='4'>
                 <Button color="primary" className={styles.questionsButton} variant="contained" size="large">Local Projects</Button>
               </Grid>
-              <Grid container justify="center" xs='6'>
+              <Grid container justify="center" xs='4'>
                 <Button color="primary" className={styles.questionsButton} variant="contained" size="large">Global Projects</Button>
+              </Grid>
+              <Grid container justify="center" xs='4'>
+                <Button color="primary" className={styles.questionsButton} variant="contained" size="large">Both</Button>
               </Grid>
             </Grid>
           </Grid>
