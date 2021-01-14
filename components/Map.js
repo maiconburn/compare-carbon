@@ -8,7 +8,8 @@ class Map extends Component {
       height: '70vh',
       latitude: 0,
       longitude: 0,
-      zoom: 1
+      
+      zoom: 0.5
     }
   }
 

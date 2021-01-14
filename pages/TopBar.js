@@ -18,7 +18,7 @@ export default function TopBar() {
   const classes = useStyles()
   return (
     <div className={classes.root}>
-      <AppBar>
+      <AppBar position="static">
         <Toolbar>
           <Typography variant="h5" className={classes.title}>
             COMPARE CARBON

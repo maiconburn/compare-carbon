@@ -1,0 +1,41 @@
+.banner{
+  height: 89.5vh;
+  .bannerWrap {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    z-index: -1;
+  }
+  .bannerText{
+    text-align: center;
+  }
+  
+  .bannerTitle{
+    margin-top: 20vh;
+    background-color:rgba(255, 255, 255, 0.5)
+  }
+  
+  .bannerSubTitle{
+    margin-top: 5vh;
+    background-color:rgba(255, 255, 255, 0.5)
+  }
+  
+  .bannerButton{
+    margin-top: 5vh;
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+  }
+}
+
+.questions{
+  height: 100vh;
+  .questionsText{
+    margin-top: 15vh;
+  }
+  .questionsButton{
+    margin-top: 20vh;
+    width: 15vw;
+    height: 20vh;
+  }
+}
