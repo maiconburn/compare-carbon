@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
@@ -8,16 +8,19 @@ import questionsList from '../json/questions.json'
 import { useRouter } from 'next/router'
 import styles from '../styles/Home.module.scss'
 
-export default function GetStarted() {
+export default function GetStarted(props) {
 
     const router = useRouter()
-    const { currentQuestion } = router.query
+
+    let { currentQuestion } = router.query
+
+    if(!currentQuestion){
+        currentQuestion = props.currentQuestion
+    }
+
     const question = questionsList[currentQuestion]
     const nextQuestion = (((question.id + 1) == questionsList.length ) ? 0 : question.id + 1)
-    
-    useEffect(() => {
-        router.prefetch('/screening')
-    }, [])
+
 
     return (
         <Container maxWidth="lg" className={styles.intro}>
@@ -45,7 +48,7 @@ export default function GetStarted() {
                         
                         {question.options.map(value =>
                             <Grid container justify="center" xs={12/question.options.length}>
-                                <Button color="primary" onClick={() => router.push('/screening/?currentQuestion='+nextQuestion)} className={styles.questionsButton} variant="contained" size="large">{value}</Button>
+                                <Button color="primary" onClick={() => router.push('/screening/?currentQuestion='+nextQuestion, { shallow: true })} className={styles.questionsButton} variant="contained" size="large">{value}</Button>
                             </Grid>
                         )}
                         
