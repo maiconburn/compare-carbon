@@ -4,9 +4,16 @@ import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
+import questionsList from '../json/questions.json'
+import { useRouter } from 'next/router'
 import styles from '../styles/Home.module.scss'
 
 export default function GetStarted() {
+    const router = useRouter()
+    const { currentQuestion } = router.query
+    const question = questionsList[currentQuestion]
+    const nextQuestion = (((question.id + 1) == questionsList.length ) ? 0 : question.id + 1)
+    
     return (
         <Container maxWidth="lg" className={styles.intro}>
             <Box xs='12'>
@@ -19,7 +26,7 @@ export default function GetStarted() {
                 >
                     <Grid item xs='12'>
                         <Typography className={styles.questionsText} variant="h3">
-                            Have you purchased carbon credits before?
+                            {question.text}
                         </Typography>
                     </Grid>
                 </Grid>
@@ -30,15 +37,16 @@ export default function GetStarted() {
                     justify="center"
                 >
                     <Grid container xs='6'>
-                        <Grid container justify="center" xs='6'>
-                            <Button color="primary" className={styles.questionsButton} variant="contained" size="large">Yes</Button>
-                        </Grid>
-                        <Grid container justify="center" xs='6'>
-                            <Button color="primary" className={styles.questionsButton} variant="contained" size="large">No</Button>
-                        </Grid>
+                        
+                        {question.options.map(value =>
+                            <Grid container justify="center" xs={12/question.options.length}>
+                                <Button color="primary" onClick={() => router.push('/screening/?currentQuestion='+nextQuestion)} className={styles.questionsButton} variant="contained" size="large">{value}</Button>
+                            </Grid>
+                        )}
+                        
                     </Grid>
                 </Grid>
-            </Box>
+            </Box>  
         </Container>
     )
 }

@@ -29,7 +29,7 @@ export default function GetStarted() {
                     </Typography>
                     </Grid>
                     <Grid item xs='12'>
-                        <Link href="/screening" passHref>
+                        <Link href="/screening?currentQuestion=0" passHref>
                             <Button className={styles.introButton} color="primary" variant="contained" size="large">Get Started</Button>
                         </Link>
                     </Grid>
