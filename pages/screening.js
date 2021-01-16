@@ -7,7 +7,7 @@ export default function Index() {
   return (
     <>
       <TopBar />
-      <Questions />
+      <Questions currentQuestion={0} />
     </>
   )
 }

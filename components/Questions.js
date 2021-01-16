@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
@@ -15,6 +15,10 @@ export default function GetStarted() {
     const question = questionsList[currentQuestion]
     const nextQuestion = (((question.id + 1) == questionsList.length ) ? 0 : question.id + 1)
     
+    useEffect(() => {
+        router.prefetch('/screening')
+    }, [])
+
     return (
         <Container maxWidth="lg" className={styles.intro}>
             <Box xs='12'>
