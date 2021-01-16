@@ -29,7 +29,7 @@ export default function TopBar() {
           <Button color="inherit">What is offsetting?</Button>
           <Button color="inherit">About Us</Button>
           <Button color="inherit">Contact</Button>
-          <Link href="/screening" passHref>
+          <Link href="/screening?currentQuestion=0" passHref>
             <Button color="primary" variant="contained">Get Started</Button>
           </Link>
         </Toolbar>
