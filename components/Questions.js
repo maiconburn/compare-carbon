@@ -9,6 +9,7 @@ import { useRouter } from 'next/router'
 import styles from '../styles/Home.module.scss'
 
 export default function GetStarted() {
+
     const router = useRouter()
     const { currentQuestion } = router.query
     const question = questionsList[currentQuestion]
