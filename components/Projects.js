@@ -227,34 +227,7 @@ export default function Projects() {
                                 </CardActions>
                             </CardActionArea>
                         </Card>
-                        <Card className={styles.card}>
-                            <CardActionArea className={styles.actionArea}>
-                                <CardMedia
-                                className={styles.media}
-                                component="img"
-                                alt="Contemplative Reptile"
-                                image="./img/amazon.jpg"
-                                title="Contemplative Reptile"
-                                />
-                                <CardContent className={styles.content}>
-                                    <Typography gutterBottom variant="h5" component="h2">
-                                        Lizard
-                                    </Typography>
-                                    <Typography variant="body2" color="textSecondary" component="p">
-                                        Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                                        across all continents except Antarctica
-                                    </Typography>
-                                </CardContent>
-                                <CardActions className={styles.actions}>
-                                    <Button size="small" color="secondary">
-                                    Buy it now
-                                    </Button>
-                                    <Button size="small" color="secondary">
-                                    Learn More
-                                    </Button>
-                                </CardActions>
-                            </CardActionArea>
-                        </Card>
+                        
                         
                     </Grid>
                 </Grid>
