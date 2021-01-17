@@ -93,7 +93,7 @@ export default function Projects() {
                                 className={styles.media}
                                 component="img"
                                 alt="Contemplative Reptile"
-                                image="./img/amazon.jpg"
+                                image="./img/amazon-project.jpg"
                                 title="Contemplative Reptile"
                                 />
                                 <CardContent className={styles.content}>
@@ -120,7 +120,7 @@ export default function Projects() {
                                 className={styles.media}
                                 component="img"
                                 alt="Contemplative Reptile"
-                                image="./img/amazon.jpg"
+                                image="./img/amazon-project.jpg"
                                 title="Contemplative Reptile"
                                 />
                                 <CardContent className={styles.content}>
@@ -147,7 +147,7 @@ export default function Projects() {
                                 className={styles.media}
                                 component="img"
                                 alt="Contemplative Reptile"
-                                image="./img/amazon.jpg"
+                                image="./img/amazon-project.jpg"
                                 title="Contemplative Reptile"
                                 />
                                 <CardContent className={styles.content}>
@@ -174,7 +174,7 @@ export default function Projects() {
                                 className={styles.media}
                                 component="img"
                                 alt="Contemplative Reptile"
-                                image="./img/amazon.jpg"
+                                image="./img/amazon-project.jpg"
                                 title="Contemplative Reptile"
                                 />
                                 <CardContent className={styles.content}>
@@ -201,7 +201,7 @@ export default function Projects() {
                                 className={styles.media}
                                 component="img"
                                 alt="Contemplative Reptile"
-                                image="./img/amazon.jpg"
+                                image="./img/amazon-project.jpg"
                                 title="Contemplative Reptile"
                                 />
                                 <CardContent className={styles.content}>
