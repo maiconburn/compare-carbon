@@ -1,0 +1,48 @@
+.projects{
+  margin-top: 5vh;
+  .projectsList{
+    .projectsOptions{
+      max-width: 30vw;
+      padding: 5%;
+      h6{
+        margin-top: 3vh;
+        font-size: 14px;
+      }
+      button{
+        width: 100%;
+      }
+    }
+    .card{
+      display:block;
+      float: right;
+      margin-bottom: 5vh;
+      max-height: 30vh;
+      max-width: 70vw;
+      color: #333;
+      .actionArea{
+        display: block;
+        width: 100%;
+        .media{
+          display: block;
+          float: left;
+          width: 45%;
+        }
+        .content{
+          display: block;
+          width: 55%;
+          height: 22vh;
+          float: left;
+        }
+        .actions{
+          display: block;
+          height: 8vh;
+          button{
+            padding: 2vh;
+            float: right;
+          }
+        }
+      }
+    }
+
+  }
+}
