@@ -1,0 +1,32 @@
+import React from 'react'
+import TopBar from '../components/TopBar'
+import Container from '@material-ui/core/Container'
+import Box from '@material-ui/core/Box'
+import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
+import styles from '../styles/AboutUs.module.scss'
+
+export default function Index() {
+  return (
+    <>
+      <TopBar />
+      <Container maxWidth="lg" className={styles.intro}>
+        <Box xs='12'>
+          <Grid 
+              className={styles.introText} 
+              container
+              direction="column"
+              alignItems="center"
+              justify="center"
+          >
+              <Grid item xs='12'>
+                  <Typography className={styles.questionsText} variant="h3">
+                    What is offsetting?
+                  </Typography>
+              </Grid>
+          </Grid>
+        </Box>
+      </Container>
+    </>
+  )
+}
