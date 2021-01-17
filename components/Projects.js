@@ -18,7 +18,7 @@ export default function Projects() {
         <Container maxWidth="lg" className={styles.projects}>
             <Box xs='12'>
                 <Grid container className={styles.projectsList}>
-                    <Grid item xs='4' height='100%'>
+                    <Grid container xs='4' height='100%'>
                         <Card className={styles.projectsOptions}>
                             <Grid container>
                                 <Grid item xs='12'>
@@ -86,35 +86,7 @@ export default function Projects() {
                             </Grid>
                         </Card> 
                     </Grid>
-                    <Grid item xs='8'>
-                        <Card className={styles.card}>
-                            <CardActionArea className={styles.actionArea}>
-                                <CardMedia
-                                className={styles.media}
-                                component="img"
-                                alt="Contemplative Reptile"
-                                image="./img/amazon.jpg"
-                                title="Contemplative Reptile"
-                                />
-                                <CardContent className={styles.content}>
-                                    <Typography gutterBottom variant="h5" component="h2">
-                                        Lizard
-                                    </Typography>
-                                    <Typography variant="body2" color="textSecondary" component="p">
-                                        Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                                        across all continents except Antarctica
-                                    </Typography>
-                                </CardContent>
-                                <CardActions className={styles.actions}>
-                                    <Button size="small" color="secondary">
-                                    Buy it now
-                                    </Button>
-                                    <Button size="small" color="secondary">
-                                    Buy it now
-                                    </Button>
-                                </CardActions>
-                            </CardActionArea>
-                        </Card>
+                    <Grid container xs='8'>
                         <Card className={styles.card}>
                             <CardActionArea className={styles.actionArea}>
                                 <CardMedia
@@ -283,6 +255,7 @@ export default function Projects() {
                                 </CardActions>
                             </CardActionArea>
                         </Card>
+                        
                     </Grid>
                 </Grid>
             </Box>

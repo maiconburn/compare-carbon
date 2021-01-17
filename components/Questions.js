@@ -21,6 +21,14 @@ export default function GetStarted(props) {
     const question = questionsList[currentQuestion]
     const nextQuestion = (((question.id + 1) == questionsList.length ) ? 0 : question.id + 1)
 
+    let nextUrl = ''
+    
+    if(questionsList.length == (question.id + 1)){
+        nextUrl = () => router.push('/projects')
+    }else{
+        nextUrl = () => router.push('/screening/?currentQuestion='+nextQuestion, { shallow: true })
+    }
+    
 
     return (
         <Container maxWidth="lg" className={styles.intro}>
@@ -48,7 +56,7 @@ export default function GetStarted(props) {
                         
                         {question.options.map(value =>
                             <Grid container justify="center" xs={12/question.options.length}>
-                                <Button color="primary" onClick={() => router.push('/screening/?currentQuestion='+nextQuestion, { shallow: true })} className={styles.questionsButton} variant="contained" size="large">{value}</Button>
+                                <Button color="primary" onClick={nextUrl} className={styles.questionsButton} variant="contained" size="large">{value}</Button>
                             </Grid>
                         )}
                         
