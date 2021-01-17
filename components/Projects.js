@@ -23,7 +23,7 @@ export default function Projects() {
                             <Grid container>
                                 <Grid item xs='12'>
                                     <Typography variant="h5" component="h5">
-                                        Screening preferences
+                                        Screening preferences:
                                     </Typography>
                                 </Grid>
                                 <Grid item xs='12'>
@@ -32,7 +32,7 @@ export default function Projects() {
                                     </Typography>
                                 </Grid>
                                 <Grid item xs='12'>
-                                    <ButtonGroup size="large" color="secondary" aria-label="large outlined primary button group">
+                                    <ButtonGroup color="secondary" aria-label="large outlined primary button group">
                                         <Button>I’m purchasing for a business</Button>
                                         <Button>I’m purchasing as an individual</Button>
                                     </ButtonGroup>
@@ -43,7 +43,7 @@ export default function Projects() {
                                     </Typography>
                                 </Grid>
                                 <Grid item xs='12'>
-                                    <ButtonGroup size="large" color="secondary" aria-label="large outlined primary button group">
+                                    <ButtonGroup color="secondary" aria-label="large outlined primary button group">
                                         <Button>Yes</Button>
                                         <Button>No</Button>
                                     </ButtonGroup>
@@ -54,7 +54,7 @@ export default function Projects() {
                                     </Typography>
                                 </Grid>
                                 <Grid item xs='12'>
-                                    <ButtonGroup size="large" color="secondary" aria-label="large outlined primary button group">
+                                    <ButtonGroup color="secondary" aria-label="large outlined primary button group">
                                         <Button>Budget ($6–$18 per credit)</Button>
                                         <Button>Environmental Impact ($18–$50 per credit)</Button>
                                     </ButtonGroup>
@@ -65,7 +65,7 @@ export default function Projects() {
                                     </Typography>
                                 </Grid>
                                 <Grid item xs='12'>
-                                    <ButtonGroup size="large" color="secondary" aria-label="large outlined primary button group">
+                                    <ButtonGroup color="secondary" aria-label="large outlined primary button group">
                                         <Button>Local Projects</Button>
                                         <Button>Global Projects</Button>
                                         <Button>Both</Button>
@@ -98,11 +98,10 @@ export default function Projects() {
                                 />
                                 <CardContent className={styles.content}>
                                     <Typography gutterBottom variant="h5" component="h2">
-                                        Lizard
+                                        Project Name
                                     </Typography>
                                     <Typography variant="body2" color="textSecondary" component="p">
-                                        Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                                        across all continents except Antarctica
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit rutrum accumsan. Donec eget tortor ultricies neque placerat fringilla. Praesent at eleifend augue, quis facilisis nisi. In eget nisi auctor, mattis diam non, malesuada ligula.
                                     </Typography>
                                 </CardContent>
                                 <CardActions className={styles.actions}>
@@ -126,11 +125,10 @@ export default function Projects() {
                                 />
                                 <CardContent className={styles.content}>
                                     <Typography gutterBottom variant="h5" component="h2">
-                                        Lizard
+                                        Project Name
                                     </Typography>
                                     <Typography variant="body2" color="textSecondary" component="p">
-                                        Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                                        across all continents except Antarctica
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit rutrum accumsan. Donec eget tortor ultricies neque placerat fringilla. Praesent at eleifend augue, quis facilisis nisi. In eget nisi auctor, mattis diam non, malesuada ligula.
                                     </Typography>
                                 </CardContent>
                                 <CardActions className={styles.actions}>
@@ -154,11 +152,10 @@ export default function Projects() {
                                 />
                                 <CardContent className={styles.content}>
                                     <Typography gutterBottom variant="h5" component="h2">
-                                        Lizard
+                                        Project Name
                                     </Typography>
                                     <Typography variant="body2" color="textSecondary" component="p">
-                                        Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                                        across all continents except Antarctica
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit rutrum accumsan. Donec eget tortor ultricies neque placerat fringilla. Praesent at eleifend augue, quis facilisis nisi. In eget nisi auctor, mattis diam non, malesuada ligula.
                                     </Typography>
                                 </CardContent>
                                 <CardActions className={styles.actions}>
@@ -182,11 +179,10 @@ export default function Projects() {
                                 />
                                 <CardContent className={styles.content}>
                                     <Typography gutterBottom variant="h5" component="h2">
-                                        Lizard
+                                        Project Name
                                     </Typography>
                                     <Typography variant="body2" color="textSecondary" component="p">
-                                        Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                                        across all continents except Antarctica
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit rutrum accumsan. Donec eget tortor ultricies neque placerat fringilla. Praesent at eleifend augue, quis facilisis nisi. In eget nisi auctor, mattis diam non, malesuada ligula.
                                     </Typography>
                                 </CardContent>
                                 <CardActions className={styles.actions}>
@@ -210,11 +206,10 @@ export default function Projects() {
                                 />
                                 <CardContent className={styles.content}>
                                     <Typography gutterBottom variant="h5" component="h2">
-                                        Lizard
+                                        Project Name
                                     </Typography>
                                     <Typography variant="body2" color="textSecondary" component="p">
-                                        Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                                        across all continents except Antarctica
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit rutrum accumsan. Donec eget tortor ultricies neque placerat fringilla. Praesent at eleifend augue, quis facilisis nisi. In eget nisi auctor, mattis diam non, malesuada ligula.
                                     </Typography>
                                 </CardContent>
                                 <CardActions className={styles.actions}>
