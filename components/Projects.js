@@ -101,7 +101,7 @@ export default function Projects() {
                                         Project Name
                                     </Typography>
                                     <Typography variant="body2" color="textSecondary" component="p">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit rutrum accumsan. Donec eget tortor ultricies neque placerat fringilla. Praesent at eleifend augue, quis facilisis nisi. In eget nisi auctor, mattis diam non, malesuada ligula.
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit rutrum accumsan. Donec eget tortor ultricies neque placerat fringilla. Praesent at eleifend augue, quis facilisis nisi.
                                     </Typography>
                                 </CardContent>
                                 <CardActions className={styles.actions}>
@@ -128,7 +128,7 @@ export default function Projects() {
                                         Project Name
                                     </Typography>
                                     <Typography variant="body2" color="textSecondary" component="p">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit rutrum accumsan. Donec eget tortor ultricies neque placerat fringilla. Praesent at eleifend augue, quis facilisis nisi. In eget nisi auctor, mattis diam non, malesuada ligula.
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit rutrum accumsan. Donec eget tortor ultricies neque placerat fringilla. Praesent at eleifend augue, quis facilisis nisi. 
                                     </Typography>
                                 </CardContent>
                                 <CardActions className={styles.actions}>
@@ -155,7 +155,7 @@ export default function Projects() {
                                         Project Name
                                     </Typography>
                                     <Typography variant="body2" color="textSecondary" component="p">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit rutrum accumsan. Donec eget tortor ultricies neque placerat fringilla. Praesent at eleifend augue, quis facilisis nisi. In eget nisi auctor, mattis diam non, malesuada ligula.
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit rutrum accumsan. Donec eget tortor ultricies neque placerat fringilla. Praesent at eleifend augue, quis facilisis nisi. 
                                     </Typography>
                                 </CardContent>
                                 <CardActions className={styles.actions}>
@@ -182,7 +182,7 @@ export default function Projects() {
                                         Project Name
                                     </Typography>
                                     <Typography variant="body2" color="textSecondary" component="p">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit rutrum accumsan. Donec eget tortor ultricies neque placerat fringilla. Praesent at eleifend augue, quis facilisis nisi. In eget nisi auctor, mattis diam non, malesuada ligula.
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit rutrum accumsan. Donec eget tortor ultricies neque placerat fringilla. Praesent at eleifend augue, quis facilisis nisi. 
                                     </Typography>
                                 </CardContent>
                                 <CardActions className={styles.actions}>
@@ -209,7 +209,7 @@ export default function Projects() {
                                         Project Name
                                     </Typography>
                                     <Typography variant="body2" color="textSecondary" component="p">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit rutrum accumsan. Donec eget tortor ultricies neque placerat fringilla. Praesent at eleifend augue, quis facilisis nisi. In eget nisi auctor, mattis diam non, malesuada ligula.
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit rutrum accumsan. Donec eget tortor ultricies neque placerat fringilla. Praesent at eleifend augue, quis facilisis nisi. 
                                     </Typography>
                                 </CardContent>
                                 <CardActions className={styles.actions}>
