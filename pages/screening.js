@@ -1,11 +1,11 @@
 import React from 'react'
-import TopBar from '../components/TopBar'
+import NavBar from '../components/NavBar'
 import Questions from '../components/Questions'
 
 export default function Index() {
   return (
     <>
-      <TopBar />
+      <NavBar />
       <Questions currentQuestion={0} />
     </>
   )

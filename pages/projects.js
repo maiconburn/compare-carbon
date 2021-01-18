@@ -1,11 +1,11 @@
 import React from 'react'
-import TopBar from '../components/TopBar'
+import NavBar from '../components/NavBar'
 import Projects from '../components/Projects'
 
 export default function Index() {
   return (
     <>
-      <TopBar />
+      <NavBar />
       <Projects />
     </>
   )

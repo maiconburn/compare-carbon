@@ -1,11 +1,11 @@
 import React from 'react'
-import TopBar from '../components/TopBar'
+import NavBar from '../components/NavBar'
 import GetStarted from '../components/GetStarted'
 
 export default function Index() {
   return (
     <>
-      <TopBar />
+      <NavBar />
       <GetStarted />
     </>
   )

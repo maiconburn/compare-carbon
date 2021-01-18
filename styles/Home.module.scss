@@ -17,6 +17,7 @@
   .introTitle{
     margin-top: 20vh;
     color: #FFF;
+    text-align: center;
   }
   
   .introSubTitle{
@@ -40,6 +41,18 @@
     width: 15vw;
     height: 20vh;
   }
+}
+
+.buttonActive{
+  color: #333;
+}
+
+.buttonGetStarted{
+  background-image: radial-gradient( circle farthest-corner at -1% 57.5%,  rgba(19,170,82,1) 0%, rgba(0,102,43,1) 90% )  !important;
+  color: #FFF !important;
+  height: '35px';
+  margin: '7px 5px';
+  border-radius: '5px';
 }
 
 .questions{
