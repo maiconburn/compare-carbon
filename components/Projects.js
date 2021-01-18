@@ -33,7 +33,7 @@ export default function Projects() {
                                 </Grid>
                                 <Grid item xs='12'>
                                     <ButtonGroup color="secondary" aria-label="large outlined primary button group">
-                                        <Button>I’m purchasing for a business</Button>
+                                        <Button variant="contained">I’m purchasing for a business</Button>
                                         <Button>I’m purchasing as an individual</Button>
                                     </ButtonGroup>
                                 </Grid>
@@ -45,7 +45,7 @@ export default function Projects() {
                                 <Grid item xs='12'>
                                     <ButtonGroup color="secondary" aria-label="large outlined primary button group">
                                         <Button>Yes</Button>
-                                        <Button>No</Button>
+                                        <Button variant="contained">No</Button>
                                     </ButtonGroup>
                                 </Grid>
                                 <Grid item xs='12'>
@@ -56,7 +56,7 @@ export default function Projects() {
                                 <Grid item xs='12'>
                                     <ButtonGroup color="secondary" aria-label="large outlined primary button group">
                                         <Button>Budget ($6–$18 per credit)</Button>
-                                        <Button>Environmental Impact ($18–$50 per credit)</Button>
+                                        <Button variant="contained">Environmental Impact ($18–$50 per credit)</Button>
                                     </ButtonGroup>
                                 </Grid>
                                 <Grid item xs='12'>
@@ -67,7 +67,7 @@ export default function Projects() {
                                 <Grid item xs='12'>
                                     <ButtonGroup color="secondary" aria-label="large outlined primary button group">
                                         <Button>Local Projects</Button>
-                                        <Button>Global Projects</Button>
+                                        <Button variant="contained">Global Projects</Button>
                                         <Button>Both</Button>
                                     </ButtonGroup>
                                 </Grid>
@@ -79,7 +79,7 @@ export default function Projects() {
                                 <Grid item xs='12'>
                                     <ButtonGroup size="small" color="secondary" aria-label="large outlined primary button group">
                                         <Button>Reforestation</Button>
-                                        <Button>Renewable Energy</Button>
+                                        <Button variant="contained">Renewable Energy</Button>
                                         <Button>Social Projects</Button>
                                     </ButtonGroup>
                                 </Grid>
