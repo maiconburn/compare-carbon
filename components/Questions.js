@@ -55,7 +55,7 @@ export default function GetStarted(props) {
                     <Grid container xs='6'>
                         
                         {question.options.map(value =>
-                            <Grid container justify="center" xs={12/question.options.length}>
+                            <Grid container justify="center" sm={12/question.options.length} xs="12">
                                 <Button color="primary" onClick={nextUrl} className={styles.questionsButton} variant="contained" size="large">{value}</Button>
                             </Grid>
                         )}
