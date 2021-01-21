@@ -91,8 +91,8 @@ export default function TopBar() {
           </Button>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <ButtonActive className={styles.buttonActive} color="inherit" href="/what-is-offsetting">
-              What is offsetting?
+            <ButtonActive className={styles.buttonActive} color="inherit" href="/why-offsetting">
+              Why offsetting?
             </ButtonActive>
             <ButtonActive className={styles.buttonActive} color="inherit" href="/about-us">
               About Us

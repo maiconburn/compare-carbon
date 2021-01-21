@@ -21,7 +21,7 @@ export default function Index() {
           >
               <Grid item xs='12'>
                   <Typography className={styles.questionsText} variant="h3">
-                    What is offsetting?
+                    Why offsetting?
                   </Typography>
               </Grid>
           </Grid>
