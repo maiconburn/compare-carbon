@@ -22,9 +22,19 @@ function Projects({projects}) {
                     </Grid>
                     <Grid item xs={8}>
                         {projects.map((project, index) =>
-                            <Project projectName={project.name} projectKey={index}/>
+                            <Project 
+                                projectName={project.name}
+                                projectCompany={project.company} 
+                                projectType={project.project_type} 
+                                projectLink={project.project_page_link} 
+                                projectPrice={project.credit_cost} 
+                                projectLocation={project.project_locations} 
+                                projectKey={index}
+                            />
                         )}
-                        <Pagination count={10} variant="outlined" shape="rounded" /> 
+                        <Grid container>
+                            <Pagination count={10} variant="outlined" shape="rounded" /> 
+                        </Grid>
                     </Grid>
                 </Grid>
             </Box>

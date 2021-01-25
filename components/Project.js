@@ -6,6 +6,7 @@ import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
+import Link from 'next/link'
 import styles from '../styles/Projects.module.scss'
 
 
@@ -27,14 +28,19 @@ function Project(props) {
                             {props.projectName}
                         </Typography>
                         <Typography variant="body2" color="textSecondary" component="p">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit rutrum accumsan. Donec eget tortor ultricies neque placerat fringilla. Praesent at eleifend augue, quis facilisis nisi.
+                            {props.projectCompany}<br />
+                            {props.projectType}<br />
+                            {"$" + props.projectPrice.toFixed(2)}<br />
+                            {props.projectLocation}<br />
                         </Typography>
                     </CardContent>
                     <CardActions className={styles.actions}>
-                        <Button size="small" color="secondary">
+                        
+                        <Button href={props.projectLink} size="small" target="_blank" color="secondary">
                         Buy it now
                         </Button>
-                        <Button size="small" color="secondary">
+                        
+                        <Button href={props.projectLink} size="small" color="secondary">
                         Learn More
                         </Button>
                     </CardActions>
