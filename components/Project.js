@@ -6,7 +6,6 @@ import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
-import Link from 'next/link'
 import styles from '../styles/Projects.module.scss'
 
 
@@ -24,7 +23,7 @@ function Project(props) {
                     title="Contemplative Reptile"
                     />
                     <CardContent className={styles.content}>
-                        <Typography gutterBottom variant="h5" component="h2">
+                        <Typography gutterBottom variant="h6" component="h3">
                             {props.projectName}
                         </Typography>
                         <Typography variant="body2" color="textSecondary" component="p">
