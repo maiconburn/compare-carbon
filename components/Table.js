@@ -233,7 +233,7 @@ const Table = () => {
                     <Column field="credit_cost" header="Price" body={credit_costBodyTemplate} sortable />
                     <Column field="name" header="Project Name" body={nameBodyTemplate} sortable />
                     <Column field="project_type" header="Project Type" body={project_typeBodyTemplate} sortable filter filterElement={ProjectTypesFilterElement} />
-                    <Column field="cert_authority" header="Cert Authority" body={cert_authorityBodyTemplate} sortable filter filterElement={CertAuthorityFilterElement} />
+                    <Column field="cert_authority" header="Certificate  Authority" body={cert_authorityBodyTemplate} sortable filter filterElement={CertAuthorityFilterElement} />
                     <Column body={actionBodyTemplate} header="Project Link" headerStyle={{width: '8em', textAlign: 'center'}} bodyStyle={{textAlign: 'center', overflow: 'visible'}} />
                 </DataTable>
             </div>

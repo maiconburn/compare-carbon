@@ -24,7 +24,7 @@ export default function GetStarted(props) {
     let nextUrl = ''
     
     if(questionsList.length == (question.id + 1)){
-        nextUrl = () => router.push('/projects')
+        nextUrl = () => router.push('/table')
     }else{
         nextUrl = () => router.push('/screening/?currentQuestion='+nextQuestion, { shallow: true })
     }
