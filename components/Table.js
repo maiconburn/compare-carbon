@@ -145,6 +145,15 @@ const Table = () => {
         setSelectedCertAuthority(event.value);
     }
 
+    const companyBodyTemplate = (rowData) => {
+        return (
+            <>
+                <span className="p-column-title">Vendor</span>
+                {rowData.company}
+            </>
+        )
+    }
+
 
     /*
     const countryBodyTemplate = (rowData) => {
@@ -233,6 +242,7 @@ const Table = () => {
                     <Column field="credit_cost" header="Price" body={credit_costBodyTemplate} sortable />
                     <Column field="name" header="Project Name" body={nameBodyTemplate} sortable />
                     <Column field="project_type" header="Project Type" body={project_typeBodyTemplate} sortable filter filterElement={ProjectTypesFilterElement} />
+                    <Column sortField="company" filterField="company" header="Vendor" body={companyBodyTemplate} sortable filter filterMatchMode="contains" filterPlaceholder="Search by company"/>
                     <Column field="cert_authority" header="Certificate  Authority" body={cert_authorityBodyTemplate} sortable filter filterElement={CertAuthorityFilterElement} />
                     <Column body={actionBodyTemplate} header="Project Link" headerStyle={{width: '8em', textAlign: 'center'}} bodyStyle={{textAlign: 'center', overflow: 'visible'}} />
                 </DataTable>
