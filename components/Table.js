@@ -177,7 +177,9 @@ const Table = () => {
         return (
             <>
                 <span className="p-column-title">Project Location</span>
-                <span style={{verticalAlign: 'middle', marginLeft: '.5em'}}>{ (rowData.project_locations.length > 1) ? rowData.project_locations.map( country => <Chip label={country}/>) : <Chip label={rowData.project_locations}/>}</span>
+                <span style={{verticalAlign: 'middle', marginLeft: '.5em'}}>
+                    { (rowData.project_locations.length > 1) ? rowData.project_locations.map( country => <Chip className="countryChip" label={country}/>) : <Chip className="countryChip" label={rowData.project_locations}/>}
+                </span>
             </>
         )
     }
