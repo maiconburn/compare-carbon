@@ -7,38 +7,49 @@ import { Button } from 'primereact/button'
 import { CustomerService } from '../service/CustomersService'
 import { Dropdown } from 'primereact/dropdown'
 import { MultiSelect } from 'primereact/multiselect'
+import { Chip } from 'primereact/chip'
 import Link from 'next/link'
 import 'primereact/resources/themes/mdc-light-indigo/theme.css'
 import 'primereact/resources/primereact.min.css'
 import 'primeicons/primeicons.css'
 
 const Table = () => {
-    const [customers, setCustomers] = useState(null);
-    const [selectedCustomers, setSelectedCustomers] = useState(null);
-    const [globalFilter, setGlobalFilter] = useState(null);
-    const [selectedRepresentatives, setSelectedRepresentatives] = useState(null);
+    const [customers, setCustomers] = useState(null)
+    const [selectedCustomers, setSelectedCustomers] = useState(null)
+    const [globalFilter, setGlobalFilter] = useState(null)
+    const [selectedProjectLocations, setSelectedProjectLocation] = useState(null)
     const [selectedProjectTypes, setSelectedProjectTypes] = useState(null)
     const [selectedCertAuthority, setSelectedCertAuthority] = useState(null)
-    const dt = useRef(null);
-    const representatives = [
-        {name: "Amy Elsner", image: 'amyelsner.png'},
-        {name: "Anna Fali", image: 'annafali.png'},
-        {name: "Asiya Javayant", image: 'asiyajavayant.png'},
-        {name: "Bernardo Dominic", image: 'bernardodominic.png'},
-        {name: "Elwin Sharvill", image: 'elwinsharvill.png'},
-        {name: "Ioni Bowcher", image: 'ionibowcher.png'},
-        {name: "Ivan Magalhaes",image: 'ivanmagalhaes.png'},
-        {name: "Onyama Limba", image: 'onyamalimba.png'},
-        {name: "Stephen Shaw", image: 'stephenshaw.png'},
-        {name: "XuXue Feng", image: 'xuxuefeng.png'}
-    ];
+    
+    const dt = useRef(null)
+    
+    const projectLocation = [
+        {name: "Africa", image: 'africa.png'},
+        {name: "South America", image: 'south-america.png'},
+        {name: "North America", image: 'north-america.png'},
+        {name: "Asia", image: 'asia.png'},
+        {name: "Australia", image: 'australia.png'},
+        {name: "Europe", image: 'europe.png'},
+    ]
 
     const projectTypes = [
-        'reforestation', 'social', 'renewables'
+        'reforestation', 
+        'social', 
+        'renewables'
     ]
 
     const certAuthority = [
-        'American Carbon Registry', 'American Carbon Registry, Gold Standard, Self-assessed', 'CDM, Gold Standard, Plan Vivo Standard', 'Gold Standard', 'Gold Standard, QAS Certified', 'Gold Standard, QAS Certified, Redd+', 'Plan Vivo Standard', 'QAS Certified, Verified Carbon Standard', 'Self-assessed', 'UK Woodland Carbon Code', 'Verified Carbon Standard'
+        'American Carbon Registry', 
+        'American Carbon Registry, Gold Standard, Self-assessed', 
+        'CDM, Gold Standard, Plan Vivo Standard', 
+        'Gold Standard', 
+        'Gold Standard, QAS Certified', 
+        'Gold Standard, QAS Certified, Redd+', 
+        'Plan Vivo Standard', 
+        'QAS Certified, Verified Carbon Standard', 
+        'Self-assessed', 
+        'UK Woodland Carbon Code', 
+        'Verified Carbon Standard'
     ]
 
     const customerService = new CustomerService()
@@ -117,7 +128,6 @@ const Table = () => {
 
 
     const cert_authorityBodyTemplate = (rowData) => {
-        console.log(rowData.cert_authority)
         return (
             <>
                 <span className="p-column-title">Project Types</span>
@@ -141,7 +151,7 @@ const Table = () => {
     }
 
     const onCertAuthorityFilterChange = (event) => {
-        dt.current.filter(event.value, 'cert_authority', 'equals');
+        dt.current.filter(event.value, 'cert_authority', 'equals')
         setSelectedCertAuthority(event.value);
     }
 
@@ -152,6 +162,46 @@ const Table = () => {
                 {rowData.company}
             </>
         )
+    }
+
+
+
+
+
+
+
+    const projectLocationBodyTemplate = (rowData) => {
+        //const src = "showcase/demo/images/avatar/" + rowData.representative.image;
+        //src={src}
+        const src = "img/continents/" + rowData.project_continent + ".png"
+        return (
+            <>
+                <span className="p-column-title">Project Location</span>
+                <span style={{verticalAlign: 'middle', marginLeft: '.5em'}}>{ (rowData.project_locations.length > 1) ? rowData.project_locations.map( country => <Chip label={country}/>) : <Chip label={rowData.project_locations}/>}</span>
+            </>
+        )
+    }
+
+    const renderProjectLocationFilter = () => {
+        return (
+            <MultiSelect className="p-column-filter" maxSelectedLabels={2} selectedItemsLabel='Multiple...' display="comma" value={selectedProjectLocations} options={projectLocation}
+                onChange={onProjectLocationFilterChange} itemTemplate={projectLocationItemTemplate} placeholder="All" optionLabel="name" optionValue="name" />
+        )
+    }
+
+    const projectLocationItemTemplate = (option) => {
+        const src = "img/continents/" + option.image
+        return (
+            <div className="p-multiselect-representative-option">
+                <img alt={option.name} src={src} width="32" style={{verticalAlign: 'middle'}} />
+                <span style={{verticalAlign: 'middle', marginLeft: '.5em'}}>{option.name}</span>
+            </div>
+        )
+    }
+
+    const onProjectLocationFilterChange = (event) => {
+        dt.current.filter(event.value, 'project_continent', 'contains')
+        setSelectedProjectLocation(event.value)
     }
 
 
@@ -230,6 +280,8 @@ const Table = () => {
     const header = renderHeader()
     const ProjectTypesFilterElement = renderProjectTypesFilter()
     const CertAuthorityFilterElement = renderCertAuthorityFilter()
+    const projectLocationFilterElement = renderProjectLocationFilter()
+
 
     return (
         <div className="datatable-projects">
@@ -242,13 +294,14 @@ const Table = () => {
                     <Column field="credit_cost" header="Price" body={credit_costBodyTemplate} sortable />
                     <Column field="name" header="Project Name" body={nameBodyTemplate} sortable />
                     <Column field="project_type" header="Project Type" body={project_typeBodyTemplate} sortable filter filterElement={ProjectTypesFilterElement} />
+                    <Column sortField="project_continent" filterField="project_continent" header="Project Location" body={projectLocationBodyTemplate} sortable filter filterElement={projectLocationFilterElement} />
                     <Column sortField="company" filterField="company" header="Vendor" body={companyBodyTemplate} sortable filter filterMatchMode="contains" filterPlaceholder="Search by company"/>
-                    <Column field="cert_authority" header="Certificate  Authority" body={cert_authorityBodyTemplate} sortable filter filterElement={CertAuthorityFilterElement} />
+                    <Column field="cert_authority" header="Cert Authority" body={cert_authorityBodyTemplate} sortable filter filterElement={CertAuthorityFilterElement} />
                     <Column body={actionBodyTemplate} header="Project Link" headerStyle={{width: '8em', textAlign: 'center'}} bodyStyle={{textAlign: 'center', overflow: 'visible'}} />
                 </DataTable>
             </div>
         </div>
-    );
+    )
 }
 
 export default Table
