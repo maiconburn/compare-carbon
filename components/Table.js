@@ -28,7 +28,6 @@ const Table = () => {
         {name: "South America", image: 'south-america.png'},
         {name: "North America", image: 'north-america.png'},
         {name: "Asia", image: 'asia.png'},
-        {name: "Australia", image: 'australia.png'},
         {name: "Europe", image: 'europe.png'},
     ]
 
@@ -40,14 +39,13 @@ const Table = () => {
 
     const certAuthority = [
         'American Carbon Registry', 
-        'American Carbon Registry, Gold Standard, Self-assessed', 
-        'CDM, Gold Standard, Plan Vivo Standard', 
-        'Gold Standard', 
-        'Gold Standard, QAS Certified', 
-        'Gold Standard, QAS Certified, Redd+', 
-        'Plan Vivo Standard', 
-        'QAS Certified, Verified Carbon Standard', 
         'Self-assessed', 
+        'CDM', 
+        'Gold Standard', 
+        'QAS Certified', 
+        'Redd+', 
+        'Plan Vivo Standard', 
+        'QAS Certified', 
         'UK Woodland Carbon Code', 
         'Verified Carbon Standard'
     ]
@@ -151,7 +149,7 @@ const Table = () => {
     }
 
     const onCertAuthorityFilterChange = (event) => {
-        dt.current.filter(event.value, 'cert_authority', 'equals')
+        dt.current.filter(event.value, 'cert_authority', 'contains')
         setSelectedCertAuthority(event.value);
     }
 
@@ -186,7 +184,7 @@ const Table = () => {
 
     const renderProjectLocationFilter = () => {
         return (
-            <MultiSelect className="p-column-filter" maxSelectedLabels={2} selectedItemsLabel='Multiple...' display="comma" value={selectedProjectLocations} options={projectLocation}
+            <MultiSelect className="p-column-filter" maxSelectedLabels={1} selectedItemsLabel={(Array.isArray(selectedProjectLocations)) ? selectedProjectLocations.length + ' continents'  : 'continents'} display="comma" value={selectedProjectLocations} options={projectLocation}
                 onChange={onProjectLocationFilterChange} itemTemplate={projectLocationItemTemplate} placeholder="All" optionLabel="name" optionValue="name" />
         )
     }
@@ -201,13 +199,25 @@ const Table = () => {
         )
     }
 
-    const onProjectLocationFilterChange = (event) => {
-        dt.current.filter(event.value, 'project_continent', 'contains')
-        setSelectedProjectLocation(event.value)
+    const onProjectLocationFilterChange = (e) => {
+
+        var teste = () => {
+            return(
+                console.log(dt.current)
+            )
+        }
+
+        dt.current.filter(e.value, 'project_continent', 'contains', teste())
+        
+        setSelectedProjectLocation(e.value)
     }
 
-
     /*
+    const filterContinent = (value, filter) => {    
+        console.log(dt.current.props.value)
+        dt.current.props.value.map(item => console.log(item))
+    }
+
     const countryBodyTemplate = (rowData) => {
         let { name, code } = rowData.country
 
@@ -296,7 +306,7 @@ const Table = () => {
                     <Column field="credit_cost" header="Price" body={credit_costBodyTemplate} sortable />
                     <Column field="name" header="Project Name" body={nameBodyTemplate} sortable />
                     <Column field="project_type" header="Project Type" body={project_typeBodyTemplate} sortable filter filterElement={ProjectTypesFilterElement} />
-                    <Column sortField="project_continent" filterField="project_continent" header="Project Location" body={projectLocationBodyTemplate} sortable filter filterElement={projectLocationFilterElement} />
+                    <Column sortField="project_continent" filterField="project_continent" header="Project Location" body={projectLocationBodyTemplate} sortable filter filterType="array" filterElement={projectLocationFilterElement} />
                     <Column sortField="company" filterField="company" header="Vendor" body={companyBodyTemplate} sortable filter filterMatchMode="contains" filterPlaceholder="Search by company"/>
                     <Column field="cert_authority" header="Cert Authority" body={cert_authorityBodyTemplate} sortable filter filterElement={CertAuthorityFilterElement} />
                     <Column body={actionBodyTemplate} header="Project Link" headerStyle={{width: '8em', textAlign: 'center'}} bodyStyle={{textAlign: 'center', overflow: 'visible'}} />

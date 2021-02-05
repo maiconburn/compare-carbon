@@ -1,3 +1,7 @@
+.datatable-projects .p-datatable-tbody tr td{
+    font-size: 0.9rem;
+}
+
 .datatable-projects .p-paginator .p-paginator-current {
     margin-left: auto;
 }
@@ -70,7 +74,7 @@
 }
 
 .datatable-projects .countryChip span{
-    font-size: 12px;
+    font-size: 0.9rem;
     padding: 2px 10px;
     margin: 0px;
 }
