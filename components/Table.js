@@ -17,18 +17,18 @@ const Table = () => {
     const [customers, setCustomers] = useState(null)
     const [selectedCustomers, setSelectedCustomers] = useState(null)
     const [globalFilter, setGlobalFilter] = useState(null)
-    const [selectedProjectLocations, setSelectedProjectLocation] = useState(null)
+    const [selectedProjectContinent, setSelectedProjectContinent] = useState(null)
     const [selectedProjectTypes, setSelectedProjectTypes] = useState(null)
     const [selectedCertAuthority, setSelectedCertAuthority] = useState(null)
     
     const dt = useRef(null)
     
-    const projectLocation = [
-        {name: "Africa", image: 'africa.png'},
-        {name: "South America", image: 'south-america.png'},
-        {name: "North America", image: 'north-america.png'},
-        {name: "Asia", image: 'asia.png'},
-        {name: "Europe", image: 'europe.png'},
+    const projectContinent = [
+        'Africa',
+        'Asia',
+        'Europe',
+        'North America',
+        'South America',
     ]
 
     const projectTypes = [
@@ -124,7 +124,7 @@ const Table = () => {
         setSelectedProjectTypes(event.value);
     }
 
-
+    //Cert Authority
     const cert_authorityBodyTemplate = (rowData) => {
         return (
             <>
@@ -153,6 +153,8 @@ const Table = () => {
         setSelectedCertAuthority(event.value);
     }
 
+
+    //Company
     const companyBodyTemplate = (rowData) => {
         return (
             <>
@@ -163,10 +165,36 @@ const Table = () => {
     }
 
 
+    //Cert Continent
+    const projectContinentBodyTemplate = (rowData) => {
+        return (
+            <>
+                <span className="p-column-title">Project Location</span>
+                <span className={classNames('customer-badge', 'project_locations-' + rowData.project_locations)}>{ (rowData.project_locations.length > 1) ? rowData.project_locations.map( country => <Chip className="countryChip" label={country}/>) : <Chip className="countryChip" label={rowData.project_locations}/>}</span>
+            </>
+        )
+    }
 
 
+    const renderProjectContinentFilter = () => {
+        return (
+            <Dropdown value={selectedProjectContinent} options={projectContinent} onChange={onProjectContinentFilterChange}
+                        itemTemplate={projectContinentItemTemplate} showClear placeholder="Select a continent" className="p-column-filter"/>
+        )
+    }
 
+    const projectContinentItemTemplate = (option) => {
+        return (
+            <span className={classNames('customer-badge', 'status-' + option)}>{option}</span>
+        )
+    }
 
+    const onProjectContinentFilterChange = (event) => {
+        dt.current.filter(event.value, 'project_continent', 'contains')
+        setSelectedProjectContinent(event.value);
+    }
+
+    /*
 
     const projectLocationBodyTemplate = (rowData) => {
         //const src = "showcase/demo/images/avatar/" + rowData.representative.image;
@@ -212,7 +240,7 @@ const Table = () => {
         setSelectedProjectLocation(e.value)
     }
 
-    /*
+
     const filterContinent = (value, filter) => {    
         console.log(dt.current.props.value)
         dt.current.props.value.map(item => console.log(item))
@@ -292,7 +320,7 @@ const Table = () => {
     const header = renderHeader()
     const ProjectTypesFilterElement = renderProjectTypesFilter()
     const CertAuthorityFilterElement = renderCertAuthorityFilter()
-    const projectLocationFilterElement = renderProjectLocationFilter()
+    const projectContinentFilterElement = renderProjectContinentFilter()
 
 
     return (
@@ -303,12 +331,12 @@ const Table = () => {
                     selection={selectedCustomers} onSelectionChange={e => setSelectedCustomers(e.value)}
                     paginator rows={10} emptyMessage="No customers found" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
                     paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" rowsPerPageOptions={[10,25,50]}>
-                    <Column field="credit_cost" header="Price" body={credit_costBodyTemplate} sortable />
                     <Column field="name" header="Project Name" body={nameBodyTemplate} sortable />
+                    <Column field="project_continent" header="Project Location" body={projectContinentBodyTemplate} sortable filter filterElement={projectContinentFilterElement} />
                     <Column field="project_type" header="Project Type" body={project_typeBodyTemplate} sortable filter filterElement={ProjectTypesFilterElement} />
-                    <Column sortField="project_continent" filterField="project_continent" header="Project Location" body={projectLocationBodyTemplate} sortable filter filterType="array" filterElement={projectLocationFilterElement} />
                     <Column sortField="company" filterField="company" header="Vendor" body={companyBodyTemplate} sortable filter filterMatchMode="contains" filterPlaceholder="Search by company"/>
                     <Column field="cert_authority" header="Cert Authority" body={cert_authorityBodyTemplate} sortable filter filterElement={CertAuthorityFilterElement} />
+                    <Column field="credit_cost" header="Price" body={credit_costBodyTemplate} sortable />
                     <Column body={actionBodyTemplate} header="Project Link" headerStyle={{width: '8em', textAlign: 'center'}} bodyStyle={{textAlign: 'center', overflow: 'visible'}} />
                 </DataTable>
             </div>
