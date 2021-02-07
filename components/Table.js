@@ -19,6 +19,7 @@ const Table = () => {
     const [globalFilter, setGlobalFilter] = useState(null)
     const [selectedProjectContinent, setSelectedProjectContinent] = useState(null)
     const [selectedProjectTypes, setSelectedProjectTypes] = useState(null)
+    const [selectedCompany, setSelectedCompany] = useState(null)
     const [selectedCertAuthority, setSelectedCertAuthority] = useState(null)
     
     const dt = useRef(null)
@@ -48,6 +49,24 @@ const Table = () => {
         'QAS Certified', 
         'UK Woodland Carbon Code', 
         'Verified Carbon Standard'
+    ]
+
+    const vendors = [
+        'Reforestum',
+        'Carbon Footprint',
+        'Carbonfund.org',
+        'Clear-Offset',
+        'Clevel',
+        'ClimateCare',
+        'Ecologi',
+        'Forest Carbon',
+        'Gold Standard',
+        'MyCarbonPlan',
+        'MyClimate',
+        'Pachama',
+        'Reforestum',
+        'Worldland Trust',
+        'Wren'
     ]
 
     const customerService = new CustomerService()
@@ -96,6 +115,8 @@ const Table = () => {
             </Link>
         )
     }
+
+    //Project Type
 
     const project_typeBodyTemplate = (rowData) => {
         return (
@@ -155,13 +176,32 @@ const Table = () => {
 
 
     //Company
+
     const companyBodyTemplate = (rowData) => {
         return (
             <>
-                <span className="p-column-title">Vendor</span>
-                {rowData.company}
+                <span className="p-column-title">Companies</span>
+                <span className={classNames('customer-badge', 'company-' + rowData.company)}>{rowData.company}</span>
             </>
         )
+    }
+
+    const renderCompanyFilter = () => {
+        return (
+            <Dropdown value={selectedCompany} options={vendors} onChange={onCompanyFilterChange}
+                        itemTemplate={CompanyItemTemplate} showClear placeholder="Select a Company" className="p-column-filter"/>
+        )
+    }
+
+    const CompanyItemTemplate = (option) => {
+        return (
+            <span className={classNames('customer-badge', 'status-' + option)}>{option}</span>
+        )
+    }
+
+    const onCompanyFilterChange = (event) => {
+        dt.current.filter(event.value, 'company', 'equals');
+        setSelectedCompany(event.value);
     }
 
 
@@ -319,6 +359,7 @@ const Table = () => {
     
     const header = renderHeader()
     const ProjectTypesFilterElement = renderProjectTypesFilter()
+    const CompanyFilterElement = renderCompanyFilter()
     const CertAuthorityFilterElement = renderCertAuthorityFilter()
     const projectContinentFilterElement = renderProjectContinentFilter()
 
@@ -334,7 +375,7 @@ const Table = () => {
                     <Column field="name" header="Project Name" body={nameBodyTemplate} sortable />
                     <Column field="project_continent" header="Project Location" body={projectContinentBodyTemplate} sortable filter filterElement={projectContinentFilterElement} />
                     <Column field="project_type" header="Project Type" body={project_typeBodyTemplate} sortable filter filterElement={ProjectTypesFilterElement} />
-                    <Column sortField="company" filterField="company" header="Vendor" body={companyBodyTemplate} sortable filter filterMatchMode="contains" filterPlaceholder="Search by company"/>
+                    <Column field="company" header="Vendor" body={companyBodyTemplate} sortable filter filterElement={CompanyFilterElement} />
                     <Column field="cert_authority" header="Cert Authority" body={cert_authorityBodyTemplate} sortable filter filterElement={CertAuthorityFilterElement} />
                     <Column field="credit_cost" header="Price" body={credit_costBodyTemplate} sortable />
                     <Column body={actionBodyTemplate} header="Project Link" headerStyle={{width: '8em', textAlign: 'center'}} bodyStyle={{textAlign: 'center', overflow: 'visible'}} />
