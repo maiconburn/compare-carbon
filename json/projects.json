@@ -1,4 +1,5 @@
-[{
+{
+    "data":[{
 	"id": 31,
 	"name": "UK Tree Planting",
 	"project_type_detailed": "Reforestation",
@@ -883,4 +884,4 @@
 	"company_location": "Geneva, Switzerland",
 	"project_locations": ["Cambodia"],
 	"project_page_link": "https://marketplace.goldstandard.org/collections/projects/products/cambodia-national-biodigester-programme"
-}]
+}]}
