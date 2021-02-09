@@ -1,240 +1,317 @@
-import React, { useState, useEffect, useRef } from 'react'
-import classNames from 'classnames'
-import { DataTable } from 'primereact/datatable'
-import { Column } from 'primereact/column'
-import { InputText } from 'primereact/inputtext'
-import { Button } from 'primereact/button'
-import { CustomerService } from '../service/CustomersService'
-import { Dropdown } from 'primereact/dropdown'
-import { MultiSelect } from 'primereact/multiselect'
-import { Chip } from 'primereact/chip'
-import Link from 'next/link'
-import 'primereact/resources/themes/mdc-light-indigo/theme.css'
-import 'primereact/resources/primereact.min.css'
-import 'primeicons/primeicons.css'
+import React, { useState, useEffect, useRef } from "react";
+import classNames from "classnames";
+import { DataTable } from "primereact/datatable";
+import { Column } from "primereact/column";
+import { InputText } from "primereact/inputtext";
+import { Button } from "primereact/button";
+import { CustomerService } from "../service/CustomersService";
+import { Dropdown } from "primereact/dropdown";
+import { Chip } from "primereact/chip";
+import Link from "next/link";
+import "primereact/resources/themes/mdc-light-indigo/theme.css";
+import "primereact/resources/primereact.min.css";
+import "primeicons/primeicons.css";
 
 const Table = () => {
-    const [customers, setCustomers] = useState(null)
-    const [selectedCustomers, setSelectedCustomers] = useState(null)
-    const [globalFilter, setGlobalFilter] = useState(null)
-    const [selectedProjectContinent, setSelectedProjectContinent] = useState(null)
-    const [selectedProjectTypes, setSelectedProjectTypes] = useState(null)
-    const [selectedCompany, setSelectedCompany] = useState(null)
-    const [selectedCertAuthority, setSelectedCertAuthority] = useState(null)
-    
-    const dt = useRef(null)
-    
-    const projectContinent = [
-        'Africa',
-        'Asia',
-        'Europe',
-        'North America',
-        'South America',
-    ]
+  const [customers, setCustomers] = useState(null);
+  const [selectedCustomers, setSelectedCustomers] = useState(null);
+  const [globalFilter, setGlobalFilter] = useState(null);
+  const [selectedProjectContinent, setSelectedProjectContinent] = useState(
+    null
+  );
+  const [selectedProjectTypes, setSelectedProjectTypes] = useState(null);
+  const [selectedCompany, setSelectedCompany] = useState(null);
+  const [selectedCertAuthority, setSelectedCertAuthority] = useState(null);
 
-    const projectTypes = [
-        'reforestation', 
-        'social', 
-        'renewables'
-    ]
+  const dt = useRef(null);
 
-    const certAuthority = [
-        'American Carbon Registry', 
-        'Self-assessed', 
-        'CDM', 
-        'Gold Standard', 
-        'QAS Certified', 
-        'Redd+', 
-        'Plan Vivo Standard', 
-        'QAS Certified', 
-        'UK Woodland Carbon Code', 
-        'Verified Carbon Standard'
-    ]
+  const projectContinent = [
+    "Africa",
+    "Asia",
+    "Europe",
+    "North America",
+    "South America",
+  ];
 
-    const vendors = [
-        'Reforestum',
-        'Carbon Footprint',
-        'Carbonfund.org',
-        'Clear-Offset',
-        'Clevel',
-        'ClimateCare',
-        'Ecologi',
-        'Forest Carbon',
-        'Gold Standard',
-        'MyCarbonPlan',
-        'MyClimate',
-        'Pachama',
-        'Reforestum',
-        'Worldland Trust',
-        'Wren'
-    ]
+  const projectTypes = ["reforestation", "social", "renewables"];
 
-    const customerService = new CustomerService()
+  const certAuthority = [
+    "American Carbon Registry",
+    "Self-assessed",
+    "CDM",
+    "Gold Standard",
+    "QAS Certified",
+    "Redd+",
+    "Plan Vivo Standard",
+    "QAS Certified",
+    "UK Woodland Carbon Code",
+    "Verified Carbon Standard",
+  ];
 
-    useEffect(() => {
-        customerService.getCustomersLarge().then(data => setCustomers(data))
-    }, [])
+  const vendors = [
+    "Reforestum",
+    "Carbon Footprint",
+    "Carbonfund.org",
+    "Clear-Offset",
+    "Clevel",
+    "ClimateCare",
+    "Ecologi",
+    "Forest Carbon",
+    "Gold Standard",
+    "MyCarbonPlan",
+    "MyClimate",
+    "Pachama",
+    "Reforestum",
+    "Worldland Trust",
+    "Wren",
+  ];
 
-    const renderHeader = () => {
-        return (
-            <div className="table-header">
-                List of Projects
-                <span className="p-input-icon-left">
-                    <i className="pi pi-search" />
-                    <InputText type="search" onInput={(e) => setGlobalFilter(e.target.value)} placeholder="Global Search" />
-                </span>
-            </div>
-        )
-    }
+  const customerService = new CustomerService();
 
+  useEffect(() => {
+    customerService.getCustomersLarge().then((data) => setCustomers(data));
+  }, []);
 
-    const nameBodyTemplate = (rowData) => {
-        return (
-            <>
-                <span className="p-column-title">Name</span>
-                {rowData.name}
-            </>
-        )
-    }
+  const renderHeader = () => {
+    return (
+      <div className="table-header">
+        List of Projects
+        <span className="p-input-icon-left">
+          <i className="pi pi-search" />
+          <InputText
+            type="search"
+            onInput={(e) => setGlobalFilter(e.target.value)}
+            placeholder="Global Search"
+          />
+        </span>
+      </div>
+    );
+  };
 
-    const credit_costBodyTemplate = (rowData) => {
-        return (
-            <>
-                <span className="p-column-title">Price</span>
-                {"$ " + rowData.credit_cost.toFixed(2)}
-            </>
-        )
-    }
+  const nameBodyTemplate = (rowData) => {
+    console.log(rowData);
+    return (
+      <>
+        <span className="p-column-title">Name</span>
+        {rowData.project_name}
+      </>
+    );
+  };
 
-    const actionBodyTemplate = (rowData) => {
-        return (
-            <Link href={rowData.project_page_link}>
-                <a target="_blank">
-                    <Button label="Link" icon="pi pi-external-link" className="p-button-sm" />
-                </a>
-            </Link>
-        )
-    }
+  const credit_costBodyTemplate = (rowData) => {
+    return (
+      <>
+        <span className="p-column-title">Price</span>
+        {"$ " + rowData.credit_cost.toFixed(2)}
+      </>
+    );
+  };
 
-    //Project Type
+  const actionBodyTemplate = (rowData) => {
+    return (
+      <Link href={rowData.project_page_link}>
+        <a target="_blank">
+          <Button
+            label="Link"
+            icon="pi pi-external-link"
+            className="p-button-sm"
+          />
+        </a>
+      </Link>
+    );
+  };
 
-    const project_typeBodyTemplate = (rowData) => {
-        return (
-            <>
-                <span className="p-column-title">Project Types</span>
-                <span className={classNames('customer-badge', 'project_type-' + rowData.project_type)}>{rowData.project_type_detailed}</span>
-            </>
-        )
-    }
+  //Project Type
 
-    const renderProjectTypesFilter = () => {
-        return (
-            <Dropdown value={selectedProjectTypes} options={projectTypes} onChange={onProjectTypesFilterChange}
-                        itemTemplate={ProjectTypesItemTemplate} showClear placeholder="Select a Project Type" className="p-column-filter"/>
-        )
-    }
+  const project_typeBodyTemplate = (rowData) => {
+    return (
+      <>
+        <span className="p-column-title">Project Types</span>
+        <span
+          className={classNames(
+            "customer-badge",
+            "project_type-" + rowData.project_type
+          )}
+        >
+          {rowData.project_type_detailed}
+        </span>
+      </>
+    );
+  };
 
-    const ProjectTypesItemTemplate = (option) => {
-        return (
-            <span className={classNames('customer-badge', 'status-' + option)}>{option}</span>
-        )
-    }
+  const renderProjectTypesFilter = () => {
+    return (
+      <Dropdown
+        value={selectedProjectTypes}
+        options={projectTypes}
+        onChange={onProjectTypesFilterChange}
+        itemTemplate={ProjectTypesItemTemplate}
+        showClear
+        placeholder="Select a Project Type"
+        className="p-column-filter"
+      />
+    );
+  };
 
-    const onProjectTypesFilterChange = (event) => {
-        dt.current.filter(event.value, 'project_type', 'equals');
-        setSelectedProjectTypes(event.value);
-    }
+  const ProjectTypesItemTemplate = (option) => {
+    return (
+      <span className={classNames("customer-badge", "status-" + option)}>
+        {option}
+      </span>
+    );
+  };
 
-    //Cert Authority
-    const cert_authorityBodyTemplate = (rowData) => {
-        return (
-            <>
-                <span className="p-column-title">Project Types</span>
-                <span className={classNames('customer-badge', 'cert_authority-' + rowData.cert_authority)}>{rowData.cert_authority}</span>
-            </>
-        )
-    }
+  const onProjectTypesFilterChange = (event) => {
+    dt.current.filter(event.value, "project_type", "equals");
+    setSelectedProjectTypes(event.value);
+  };
 
+  //Cert Authority
+  const cert_authorityBodyTemplate = (rowData) => {
+    return (
+      <>
+        <span className="p-column-title">Cert Authority</span>
+        <span
+          className={classNames(
+            "customer-badge",
+            "cert_authority-" + rowData.cert_authority
+          )}
+        >
+          {rowData.cert_authority.length > 1 ? (
+            rowData.cert_authority.map((authority) => (
+              <Chip className="itemChip" label={authority} />
+            ))
+          ) : (
+            <Chip className="itemChip" label={rowData.cert_authority} />
+          )}
+        </span>
+      </>
+    );
+  };
 
-    const renderCertAuthorityFilter = () => {
-        return (
-            <Dropdown value={selectedCertAuthority} options={certAuthority} onChange={onCertAuthorityFilterChange}
-                        itemTemplate={CertAuthorityItemTemplate} showClear placeholder="Select a Cert Authority" className="p-column-filter"/>
-        )
-    }
+  const renderCertAuthorityFilter = () => {
+    return (
+      <Dropdown
+        value={selectedCertAuthority}
+        options={certAuthority}
+        onChange={onCertAuthorityFilterChange}
+        itemTemplate={CertAuthorityItemTemplate}
+        showClear
+        placeholder="Select a Cert Authority"
+        className="p-column-filter"
+      />
+    );
+  };
 
-    const CertAuthorityItemTemplate = (option) => {
-        return (
-            <span className={classNames('customer-badge', 'status-' + option)}>{option}</span>
-        )
-    }
+  const CertAuthorityItemTemplate = (option) => {
+    return (
+      <span className={classNames("customer-badge", "status-" + option)}>
+        {option}
+      </span>
+    );
+  };
 
-    const onCertAuthorityFilterChange = (event) => {
-        dt.current.filter(event.value, 'cert_authority', 'contains')
-        setSelectedCertAuthority(event.value);
-    }
+  const onCertAuthorityFilterChange = (event) => {
+    dt.current.filter(event.value, "cert_authority", "contains");
+    setSelectedCertAuthority(event.value);
+  };
 
+  //Company
 
-    //Company
+  const companyBodyTemplate = (rowData) => {
+    return (
+      <>
+        <span className="p-column-title">Companies</span>
+        <span
+          className={classNames(
+            "customer-badge",
+            "company-" + rowData.company_entry.company_name
+          )}
+        >
+          {rowData.company_entry.company_name}
+        </span>
+      </>
+    );
+  };
 
-    const companyBodyTemplate = (rowData) => {
-        return (
-            <>
-                <span className="p-column-title">Companies</span>
-                <span className={classNames('customer-badge', 'company-' + rowData.company)}>{rowData.company}</span>
-            </>
-        )
-    }
+  const renderCompanyFilter = () => {
+    return (
+      <Dropdown
+        value={selectedCompany}
+        options={vendors}
+        onChange={onCompanyFilterChange}
+        itemTemplate={CompanyItemTemplate}
+        showClear
+        placeholder="Select a Company"
+        className="p-column-filter"
+      />
+    );
+  };
 
-    const renderCompanyFilter = () => {
-        return (
-            <Dropdown value={selectedCompany} options={vendors} onChange={onCompanyFilterChange}
-                        itemTemplate={CompanyItemTemplate} showClear placeholder="Select a Company" className="p-column-filter"/>
-        )
-    }
+  const CompanyItemTemplate = (option) => {
+    return (
+      <span className={classNames("customer-badge", "status-" + option)}>
+        {option}
+      </span>
+    );
+  };
 
-    const CompanyItemTemplate = (option) => {
-        return (
-            <span className={classNames('customer-badge', 'status-' + option)}>{option}</span>
-        )
-    }
+  const onCompanyFilterChange = (event) => {
+    dt.current.filter(event.value, "company_entry.company_name", "contains");
+    setSelectedCompany(event.value);
+  };
 
-    const onCompanyFilterChange = (event) => {
-        dt.current.filter(event.value, 'company', 'equals');
-        setSelectedCompany(event.value);
-    }
+  //Cert Continent
+  const projectContinentBodyTemplate = (rowData) => {
+    return (
+      <>
+        <span className="p-column-title">Project Location</span>
+        <span
+          className={classNames(
+            "customer-badge",
+            "project_locations-" + rowData.project_locations
+          )}
+        >
+          {rowData.project_locations.length > 1 ? (
+            rowData.project_locations.map((country) => (
+              <Chip className="itemChip" label={country} />
+            ))
+          ) : (
+            <Chip className="itemChip" label={rowData.project_locations} />
+          )}
+        </span>
+      </>
+    );
+  };
 
+  const renderProjectContinentFilter = () => {
+    return (
+      <Dropdown
+        value={selectedProjectContinent}
+        options={projectContinent}
+        onChange={onProjectContinentFilterChange}
+        itemTemplate={projectContinentItemTemplate}
+        showClear
+        placeholder="Select a continent"
+        className="p-column-filter"
+      />
+    );
+  };
 
-    //Cert Continent
-    const projectContinentBodyTemplate = (rowData) => {
-        return (
-            <>
-                <span className="p-column-title">Project Location</span>
-                <span className={classNames('customer-badge', 'project_locations-' + rowData.project_locations)}>{ (rowData.project_locations.length > 1) ? rowData.project_locations.map( country => <Chip className="countryChip" label={country}/>) : <Chip className="countryChip" label={rowData.project_locations}/>}</span>
-            </>
-        )
-    }
+  const projectContinentItemTemplate = (option) => {
+    return (
+      <span className={classNames("customer-badge", "status-" + option)}>
+        {option}
+      </span>
+    );
+  };
 
+  const onProjectContinentFilterChange = (event) => {
+    dt.current.filter(event.value, "project_continent", "contains");
+    setSelectedProjectContinent(event.value);
+  };
 
-    const renderProjectContinentFilter = () => {
-        return (
-            <Dropdown value={selectedProjectContinent} options={projectContinent} onChange={onProjectContinentFilterChange}
-                        itemTemplate={projectContinentItemTemplate} showClear placeholder="Select a continent" className="p-column-filter"/>
-        )
-    }
-
-    const projectContinentItemTemplate = (option) => {
-        return (
-            <span className={classNames('customer-badge', 'status-' + option)}>{option}</span>
-        )
-    }
-
-    const onProjectContinentFilterChange = (event) => {
-        dt.current.filter(event.value, 'project_continent', 'contains')
-        setSelectedProjectContinent(event.value);
-    }
-
-    /*
+  /*
 
     const projectLocationBodyTemplate = (rowData) => {
         //const src = "showcase/demo/images/avatar/" + rowData.representative.image;
@@ -356,37 +433,91 @@ const Table = () => {
     const statusFilterElement = renderStatusFilter();
 
     */
-    
-    const header = renderHeader()
-    const ProjectTypesFilterElement = renderProjectTypesFilter()
-    const CompanyFilterElement = renderCompanyFilter()
-    const CertAuthorityFilterElement = renderCertAuthorityFilter()
-    const projectContinentFilterElement = renderProjectContinentFilter()
 
+  const header = renderHeader();
+  const ProjectTypesFilterElement = renderProjectTypesFilter();
+  const CompanyFilterElement = renderCompanyFilter();
+  const CertAuthorityFilterElement = renderCertAuthorityFilter();
+  const projectContinentFilterElement = renderProjectContinentFilter();
 
-    return (
-        <div className="datatable-projects">
-            <div className="card">
-                <DataTable ref={dt} value={customers}
-                    header={header} className="p-datatable-customers" dataKey="id" rowHover globalFilter={globalFilter}
-                    selection={selectedCustomers} onSelectionChange={e => setSelectedCustomers(e.value)}
-                    paginator rows={10} emptyMessage="No customers found" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-                    paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" rowsPerPageOptions={[10,25,50]}>
-                    <Column field="name" header="Project Name" body={nameBodyTemplate} sortable />
-                    <Column field="project_continent" header="Project Location" body={projectContinentBodyTemplate} sortable filter filterElement={projectContinentFilterElement} />
-                    <Column field="project_type" header="Project Type" body={project_typeBodyTemplate} sortable filter filterElement={ProjectTypesFilterElement} />
-                    <Column field="company" header="Vendor" body={companyBodyTemplate} sortable filter filterElement={CompanyFilterElement} />
-                    <Column field="cert_authority" header="Cert Authority" body={cert_authorityBodyTemplate} sortable filter filterElement={CertAuthorityFilterElement} />
-                    <Column field="credit_cost" header="Price" body={credit_costBodyTemplate} sortable />
-                    <Column body={actionBodyTemplate} header="Project Link" headerStyle={{width: '8em', textAlign: 'center'}} bodyStyle={{textAlign: 'center', overflow: 'visible'}} />
-                </DataTable>
-            </div>
-        </div>
-    )
-}
+  return (
+    <div className="datatable-projects">
+      <div className="card">
+        <DataTable
+          ref={dt}
+          value={customers}
+          header={header}
+          className="p-datatable-customers"
+          dataKey="id"
+          rowHover
+          globalFilter={globalFilter}
+          selection={selectedCustomers}
+          onSelectionChange={(e) => setSelectedCustomers(e.value)}
+          paginator
+          rows={10}
+          emptyMessage="No projects found"
+          currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+          paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
+          rowsPerPageOptions={[10, 25, 50]}
+        >
+          <Column
+            field="name"
+            header="Project Name"
+            body={nameBodyTemplate}
+            sortable
+          />
+          <Column
+            field="project_continent"
+            header="Project Location"
+            body={projectContinentBodyTemplate}
+            sortable
+            filter
+            filterElement={projectContinentFilterElement}
+          />
+          <Column
+            field="project_type"
+            header="Project Type"
+            body={project_typeBodyTemplate}
+            sortable
+            filter
+            filterElement={ProjectTypesFilterElement}
+          />
+          <Column
+            field="company_entry.company_name"
+            header="Vendor"
+            body={companyBodyTemplate}
+            sortable
+            filter
+            filterElement={CompanyFilterElement}
+          />
+          <Column
+            field="cert_authority"
+            header="Cert Authority"
+            body={cert_authorityBodyTemplate}
+            sortable
+            filter
+            filterElement={CertAuthorityFilterElement}
+          />
+          <Column
+            field="credit_cost"
+            header="Price"
+            body={credit_costBodyTemplate}
+            sortable
+          />
+          <Column
+            body={actionBodyTemplate}
+            header="Project Link"
+            headerStyle={{ width: "8em", textAlign: "center" }}
+            bodyStyle={{ textAlign: "center", overflow: "visible" }}
+          />
+        </DataTable>
+      </div>
+    </div>
+  );
+};
 
-export default Table
-                 
+export default Table;
+
 /*
 <Column sortField="representative.name" filterField="representative.name" header="Project Location" body={representativeBodyTemplate} sortable filter filterElement={representativeFilterElement} />
 <Column field="status" header="Project Type" body={statusBodyTemplate} sortable filter filterElement={statusFilterElement} />

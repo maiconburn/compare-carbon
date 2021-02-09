@@ -1,113 +1,153 @@
-.datatable-projects .p-datatable-tbody tr td{
-    font-size: 0.9rem;
+.datatable-projects .p-datatable-tbody tr td {
+  font-size: 0.9rem;
 }
 
 .datatable-projects .p-paginator .p-paginator-current {
-    margin-left: auto;
+  margin-left: auto;
 }
 
 .datatable-projects .p-progressbar {
-    height: .5rem;
-    background-color: #D8DADC;
+  height: 0.5rem;
+  background-color: #d8dadc;
 }
 
 .datatable-projects .p-progressbar .p-progressbar-value {
-    background-color: #607D8B;
+  background-color: #607d8b;
 }
 
 .datatable-projects .table-header {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .datatable-projects .p-datepicker {
-    min-width: 25rem;
+  min-width: 25rem;
 }
 
 .datatable-projects .p-datepicker td {
-    font-weight: 400;
+  font-weight: 400;
 }
 
 .datatable-projects .p-datatable.p-datatable-customers .p-datatable-header {
-    padding: 1rem;
-    text-align: left;
-    font-size: 1.3rem;
+  padding: 1rem;
+  text-align: left;
+  font-size: 1.3rem;
 }
 
 .datatable-projects .p-datatable.p-datatable-customers .p-paginator {
-    padding: 1rem;
+  padding: 1rem;
 }
 
-.datatable-projects .p-datatable.p-datatable-customers .p-datatable-thead > tr > th {
-    text-align: left;
+.datatable-projects
+  .p-datatable.p-datatable-customers
+  .p-datatable-thead
+  > tr
+  > th {
+  text-align: left;
 }
 
-.datatable-projects .p-datatable.p-datatable-customers .p-datatable-tbody > tr > td {
-    cursor: auto;
+.datatable-projects
+  .p-datatable.p-datatable-customers
+  .p-datatable-tbody
+  > tr
+  > td {
+  cursor: auto;
 }
 
-.datatable-projects .p-datatable.p-datatable-customers .p-dropdown-label:not(.p-placeholder) {
-    text-transform: uppercase;
+.datatable-projects
+  .p-datatable.p-datatable-customers
+  .p-dropdown-label:not(.p-placeholder) {
+  text-transform: uppercase;
 }
 
-.datatable-projects .p-datatable-customers .p-datatable-tbody > tr > td .p-column-title {
-    display: none;
+.datatable-projects
+  .p-datatable-customers
+  .p-datatable-tbody
+  > tr
+  > td
+  .p-column-title {
+  display: none;
 }
 
-.datatable-projects .p-filter-column input{
-    width: 100%;
+.datatable-projects .p-filter-column input {
+  width: 100%;
 }
 
-.datatable-projects .p-filter-column .p-dropdown{
-    width: 100%;
+.datatable-projects .p-filter-column .p-dropdown {
+  width: 100%;
 }
 
-.datatable-projects .p-filter-column .p-multiselect{
-    width: 100%;
+.datatable-projects .p-filter-column .p-multiselect {
+  width: 100%;
 }
 
-.datatable-projects .countryChip{
-    padding: 0px;
-    float: left;
-    margin-right: 4px;
-    margin-bottom: 4px;
+.datatable-projects .itemChip {
+  padding: 0px;
+  float: left;
+  margin-right: 4px;
+  margin-bottom: 4px;
 }
 
-.datatable-projects .countryChip span{
-    font-size: 0.9rem;
-    padding: 2px 10px;
-    margin: 0px;
+.datatable-projects .itemChip span {
+  font-size: 0.9rem;
+  padding: 2px 10px;
+  margin: 0px;
 }
 
 @media screen and (max-width: 960px) {
-    .datatable-projects .p-datatable.p-datatable-customers .p-datatable-thead > tr > th,
-    .datatable-projects .p-datatable.p-datatable-customers .p-datatable-tfoot > tr > td {
-        display: none !important;
-    }
+  .datatable-projects
+    .p-datatable.p-datatable-customers
+    .p-datatable-thead
+    > tr
+    > th,
+  .datatable-projects
+    .p-datatable.p-datatable-customers
+    .p-datatable-tfoot
+    > tr
+    > td {
+    display: none !important;
+  }
 
-    .datatable-projects .p-datatable.p-datatable-customers .p-datatable-tbody > tr {
-        border-bottom: 1px solid var(--layer-2);
-    }
+  .datatable-projects
+    .p-datatable.p-datatable-customers
+    .p-datatable-tbody
+    > tr {
+    border-bottom: 1px solid var(--layer-2);
+  }
 
-    .datatable-projects .p-datatable.p-datatable-customers .p-datatable-tbody > tr > td {
-        text-align: left;
-        display: block;
-        border: 0 none !important;
-        width: 100% !important;
-        float: left;
-        clear: left;
-        border: 0 none;
-    }
+  .datatable-projects
+    .p-datatable.p-datatable-customers
+    .p-datatable-tbody
+    > tr
+    > td {
+    text-align: left;
+    display: block;
+    border: 0 none !important;
+    width: 100% !important;
+    float: left;
+    clear: left;
+    border: 0 none;
+  }
 
-    .datatable-projects .p-datatable.p-datatable-customers .p-datatable-tbody > tr > td .p-column-title {
-        padding: .4rem;
-        min-width: 30%;
-        display: inline-block;
-        margin: -.4rem 1rem -.4rem -.4rem;
-        font-weight: bold;
-    }
+  .datatable-projects
+    .p-datatable.p-datatable-customers
+    .p-datatable-tbody
+    > tr
+    > td
+    .p-column-title {
+    padding: 0.4rem;
+    min-width: 30%;
+    display: inline-block;
+    margin: -0.4rem 1rem -0.4rem -0.4rem;
+    font-weight: bold;
+  }
 
-    .datatable-projects .p-datatable.p-datatable-customers .p-datatable-tbody > tr > td .p-progressbar {
-        margin-top: .5rem;
-    }
+  .datatable-projects
+    .p-datatable.p-datatable-customers
+    .p-datatable-tbody
+    > tr
+    > td
+    .p-progressbar {
+    margin-top: 0.5rem;
+  }
 }

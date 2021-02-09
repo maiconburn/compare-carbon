@@ -1,6 +1,6 @@
-import React from 'react'
-import NavBar from '../components/NavBar'
-import Questions from '../components/Questions'
+import React from "react";
+import NavBar from "../components/NavBar";
+import Questions from "../components/Questions";
 
 export default function Index() {
   return (
@@ -8,5 +8,5 @@ export default function Index() {
       <NavBar />
       <Questions currentQuestion={0} />
     </>
-  )
+  );
 }

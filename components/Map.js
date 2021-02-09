@@ -1,17 +1,17 @@
-import { Component } from 'react'
-import ReactMapGL from 'react-map-gl'
+import { Component } from "react";
+import ReactMapGL from "react-map-gl";
 
 class Map extends Component {
   state = {
     viewport: {
-      width: '95vw',
-      height: '70vh',
+      width: "95vw",
+      height: "70vh",
       latitude: 0,
       longitude: 0,
-      
-      zoom: 0.5
-    }
-  }
+
+      zoom: 0.5,
+    },
+  };
 
   render() {
     return (
@@ -21,8 +21,8 @@ class Map extends Component {
         onViewportChange={(viewport) => this.setState({ viewport })}
         {...this.state.viewport}
       />
-    )
+    );
   }
 }
 
-export default Map
+export default Map;

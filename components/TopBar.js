@@ -1,10 +1,10 @@
-import React from 'react'
-import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
-import Typography from '@material-ui/core/Typography'
-import Link from 'next/link'
-import Button from '@material-ui/core/Button'
-import styles from '../styles/Home.module.scss'
+import React from "react";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import Link from "next/link";
+import Button from "@material-ui/core/Button";
+import styles from "../styles/Home.module.scss";
 
 export default function TopBar() {
   return (
@@ -26,10 +26,16 @@ export default function TopBar() {
             <Button color="inherit">Contact</Button>
           </Link>
           <Link href="/screening" passHref>
-            <Button color="primary" variant="contained" className={styles.getStarted}>Get Started</Button>
+            <Button
+              color="primary"
+              variant="contained"
+              className={styles.getStarted}
+            >
+              Get Started
+            </Button>
           </Link>
         </Toolbar>
       </AppBar>
     </div>
-  )
+  );
 }

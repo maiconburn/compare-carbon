@@ -1,25 +1,28 @@
-import { createMuiTheme } from '@material-ui/core/'
-import red from '@material-ui/core/colors/red'
-import 'fontsource-roboto'
+import { createMuiTheme } from "@material-ui/core/";
+import red from "@material-ui/core/colors/red";
+import "fontsource-roboto";
 
 const defaultTheme = createMuiTheme({
   palette: {
     primary: {
-      main: '#FFF',
+      main: "#FFF",
     },
     secondary: {
-      main: '#333',
+      main: "#333",
     },
     error: {
       main: red.A400,
     },
     background: {
-      default: '#E1E7E4',
+      default: "#E1E7E4",
     },
   },
-})
+});
 
-const { breakpoints, typography: { pxToRem } } = defaultTheme
+const {
+  breakpoints,
+  typography: { pxToRem },
+} = defaultTheme;
 
 const theme = {
   ...defaultTheme,
@@ -28,11 +31,11 @@ const theme = {
       h1: {
         fontSize: "5rem",
         [breakpoints.down("xs")]: {
-          fontSize: "3rem"
-        }
-      }
-    }
-  }
-}
+          fontSize: "3rem",
+        },
+      },
+    },
+  },
+};
 
-export default theme
+export default theme;

@@ -13,8 +13,8 @@ export class CustomerService {
     }
 
     getCustomersLarge() {
-        return axios.get('api/hello')
-                .then(res => res.data.data)
+        return axios.get('https://api.carboncertify.com/projects')
+                .then(res => res.data)
     }
 
     getCustomersXLarge() {
