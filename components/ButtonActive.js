@@ -6,10 +6,7 @@ import Button from "@material-ui/core/Button";
 function ButtonActive(props) {
   const router = useRouter();
   const style = {
-    background:
-      router.pathname === props.href
-        ? "linear-gradient( 75.7deg,  rgba(34,126,34,1) 3.8%, rgba(99,162,17,1) 87.1% )"
-        : "none",
+    border: router.pathname === props.href ? "1px solid #FFF" : "none",
     color: router.pathname === props.href ? "#FFF" : "#333",
     height: "35px",
     margin: "7px 5px",

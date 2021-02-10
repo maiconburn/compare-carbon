@@ -4,7 +4,6 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import MoreIcon from "@material-ui/icons/MoreVert";
@@ -30,6 +29,13 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("md")]: {
       display: "none",
     },
+  },
+  appbar: {
+    background: "transparent",
+    boxShadow: "none",
+  },
+  logo: {
+    maxWidth: 200,
   },
 }));
 
@@ -99,12 +105,10 @@ export default function TopBar() {
 
   return (
     <div className={classes.grow}>
-      <AppBar position="static">
+      <AppBar position="static" className={classes.appbar}>
         <Toolbar>
           <Button edge="start" color="inherit" href="/">
-            <Typography variant="h6" className="MuiTypography-noWrap">
-              COMPARE CARBON
-            </Typography>
+            <img src="img/logo-white.png" alt="logo" className={classes.logo} />
           </Button>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
