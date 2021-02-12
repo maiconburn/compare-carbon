@@ -6,6 +6,7 @@ import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import questionsList from "../json/questions.json";
 import { useRouter } from "next/router";
+import Stepper from "../components/Steeper";
 import styles from "../styles/Home.module.scss";
 
 export default function GetStarted(props) {
@@ -69,6 +70,9 @@ export default function GetStarted(props) {
               </Grid>
             ))}
           </Grid>
+        </Grid>
+        <Grid container direction="row" alignItems="center" justify="center">
+          <Stepper step={0} className={styles.stepper} />
         </Grid>
       </Box>
     </Container>
