@@ -160,7 +160,7 @@ export default function NavBarInternal() {
               buttonClass="buttonCalculate"
               color="inherit"
               urlLink="/calculate"
-              href="/calculate"
+              href="/"
             >
               Calculate
             </ButtonActiveInternal>

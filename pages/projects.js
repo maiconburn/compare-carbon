@@ -1,5 +1,4 @@
 import React from "react";
-import NavBarInternal from "../components/NavBarInternal";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
