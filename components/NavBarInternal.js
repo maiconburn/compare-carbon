@@ -15,6 +15,7 @@ import { useRouter } from "next/router";
 const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
+    padding: "20px 30px 0 30px",
   },
   menuButton: {
     marginRight: theme.spacing(0),

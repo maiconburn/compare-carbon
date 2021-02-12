@@ -1,3 +1,7 @@
+.datatable-projects {
+  margin: 50px 30px 0px 30px;
+}
+
 .datatable-projects .p-datatable-tbody tr td {
   font-size: 0.9rem;
 }
@@ -67,6 +71,7 @@
   > td
   .p-column-title {
   display: none;
+  font-size: 0.9rem;
 }
 
 .datatable-projects .p-filter-column input {
