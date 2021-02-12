@@ -31,17 +31,19 @@
     text-align: center;
   }
 
-  .introButton {
-    background-image: radial-gradient(
-      circle farthest-corner at 16.5% 28.1%,
-      rgba(15, 27, 49, 1) 0%,
-      rgba(0, 112, 218, 1) 90%
-    );
+  a.introButton {
+    background: none;
+    border: 1px solid #fff;
     margin-top: 5vh;
     color: #fff;
     width: 200px;
     height: 50px;
     font-size: 20px;
+  }
+
+  a:hover.introButton {
+    background: none;
+    opacity: 0.8;
   }
   .questionsText {
     color: #fff;
@@ -55,22 +57,6 @@
   }
 }
 
-.buttonActive {
-  color: #fff !important;
-}
-
-.buttonGetStarted {
-  background-image: radial-gradient(
-    circle farthest-corner at 16.5% 28.1%,
-    rgba(15, 27, 49, 1) 0%,
-    rgba(0, 112, 218, 1) 90%
-  ) !important;
-  color: #fff !important;
-  height: "35px";
-  margin: "7px 5px";
-  border-radius: "5px";
-}
-
 .questions {
   height: 100vh;
   .questionsText {
@@ -79,6 +65,8 @@
     margin-top: 15vh;
   }
   .questionsButton {
+    background: none;
+    border: 1px solid #fff;
     margin-top: 20vh;
     width: 15vw;
     height: 20vh;

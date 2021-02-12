@@ -10,17 +10,22 @@ function ButtonActive(props) {
     e.preventDefault();
     router.push(props.href);
   };
+  const style = {
+    border:
+      router.pathname === props.href ? "1px solid #333" : "1px solid #fafafa",
+  };
   return (
     <Button
       href={props.href}
       className={
-        props.buttonClass == "buttonGetStarted"
-          ? styles.buttonGetStarted
-          : styles.buttonActive
+        props.buttonClass == "buttonCalculate"
+          ? styles.buttonCalculate
+          : styles.buttonActiveInternal
       }
       target={props.target}
       color={props.color}
       onClick={handleClick}
+      style={style}
     >
       {props.children}
     </Button>

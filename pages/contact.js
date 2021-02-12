@@ -1,5 +1,5 @@
 import React from "react";
-import NavBar from "../components/NavBar";
+import NavBarInternal from "../components/NavBarInternal";
 import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
@@ -9,7 +9,7 @@ import styles from "../styles/AboutUs.module.scss";
 export default function Index() {
   return (
     <>
-      <NavBar />
+      <NavBarInternal />
       <Container maxWidth="lg" className={styles.intro}>
         <Box xs="12">
           <Grid

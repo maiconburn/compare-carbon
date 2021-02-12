@@ -7,7 +7,7 @@ import Button from "@material-ui/core/Button";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import MoreIcon from "@material-ui/icons/MoreVert";
-import ButtonActive from "../components/ButtonActive";
+import ButtonActiveInternal from "../components/ButtonActiveInternal";
 import ButtonMobileActive from "../components/ButtonMobileActive";
 import styles from "../styles/components/NavBar.module.scss";
 import { useRouter } from "next/router";
@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function NavBar() {
+export default function NavBarInternal() {
   const router = useRouter();
   const classes = useStyles();
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -128,38 +128,42 @@ export default function NavBar() {
       <AppBar position="static" className={classes.appbar}>
         <Toolbar>
           <Button edge="start" color="inherit" href="/">
-            <img src="img/logo-white.png" alt="logo" className={classes.logo} />
+            <img src="img/logo-blue.png" alt="logo" className={classes.logo} />
           </Button>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <ButtonActive
-              buttonClass="buttonActive"
+            <ButtonActiveInternal
+              buttonClass="buttonActiveInternal"
               color="inherit"
+              urlLink="/why-offsetting"
               href="/why-offsetting"
             >
               Why offsetting?
-            </ButtonActive>
-            <ButtonActive
-              buttonClass="buttonActive"
+            </ButtonActiveInternal>
+            <ButtonActiveInternal
+              buttonClass="buttonActiveInternal"
               color="inherit"
+              urlLink="/about-us"
               href="/about-us"
             >
               About Us
-            </ButtonActive>
-            <ButtonActive
-              buttonClass="buttonActive"
+            </ButtonActiveInternal>
+            <ButtonActiveInternal
+              buttonClass="buttonActiveInternal"
               color="inherit"
+              urlLink="/contact"
               href="/contact"
             >
               Contact
-            </ButtonActive>
-            <ButtonActive
-              buttonClass="buttonGetStarted"
+            </ButtonActiveInternal>
+            <ButtonActiveInternal
+              buttonClass="buttonCalculate"
               color="inherit"
-              href="/screening"
+              urlLink="/calculate"
+              href="/calculate"
             >
-              Get Started
-            </ButtonActive>
+              Calculate
+            </ButtonActiveInternal>
           </div>
           <div className={classes.sectionMobile}>
             <IconButton

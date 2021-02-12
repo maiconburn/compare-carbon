@@ -1,5 +1,5 @@
 import React from "react";
-import NavBar from "../components/NavBar";
+import NavBarInternal from "../components/NavBarInternal";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
@@ -8,11 +8,12 @@ import Filters from "../components/Filters";
 import Pagination from "@material-ui/lab/Pagination";
 import styles from "../styles/Projects.module.scss";
 import fetch from "isomorphic-unfetch";
+import NavBarInternal from "../components/NavBarInternal";
 
 function Projects({ projects }) {
   return (
     <>
-      <NavBar />
+      <NavBarInternal />
       <Container maxWidth="lg" className={styles.projects}>
         <Box xs>
           <Grid container className={styles.projectsList}>

@@ -1,5 +1,5 @@
 import React from "react";
-import NavBar from "../components/NavBar";
+import NavBarInternal from "../components/NavBarInternal";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 import Table from "../components/Table";
@@ -9,7 +9,7 @@ import fetch from "isomorphic-unfetch";
 function Projects({ projects }) {
   return (
     <>
-      <NavBar />
+      <NavBarInternal />
       <Container maxWidth="lg" className={styles.projects}>
         <Box xs>
           <Table />
