@@ -1,0 +1,32 @@
+.table {
+  min-width: 450px;
+  tr {
+    th:first-child {
+      width: 30%;
+      font-size: 12px;
+    }
+    th {
+      text-align: left;
+      font-size: 12px;
+    }
+    td {
+      text-align: left;
+      font-size: 12px;
+    }
+  }
+  a.calculate {
+    font-weight: bold;
+    color: #f88502;
+  }
+
+  a:hover.calculate {
+    opacity: 0.8;
+  }
+  .buyNow {
+    background-color: #f88502;
+  }
+}
+
+.imageBox {
+  background: inherit;
+}

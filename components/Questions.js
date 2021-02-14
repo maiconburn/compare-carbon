@@ -35,7 +35,7 @@ export default function GetStarted(props) {
 
   return (
     <Container maxWidth="lg" className={styles.intro}>
-      <Box xs="12">
+      <Box>
         <Grid
           className={styles.introText}
           container
@@ -43,14 +43,14 @@ export default function GetStarted(props) {
           alignItems="center"
           justify="center"
         >
-          <Grid item xs="12">
+          <Grid item>
             <Typography className={styles.questionsText} variant="h3">
               {question.text}
             </Typography>
           </Grid>
         </Grid>
         <Grid container direction="row" alignItems="center" justify="center">
-          <Grid container xs="6">
+          <Grid container xs={6}>
             {question.options.map((value) => (
               <Grid
                 container
@@ -72,7 +72,11 @@ export default function GetStarted(props) {
           </Grid>
         </Grid>
         <Grid container direction="row" alignItems="center" justify="center">
-          <Stepper step={0} className={styles.stepper} />
+          <Stepper
+            actualStep={question.id}
+            stepsNumber={questionsList.length}
+            className={styles.stepper}
+          />
         </Grid>
       </Box>
     </Container>

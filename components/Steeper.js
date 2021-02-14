@@ -1,45 +1,50 @@
 import React from "react";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { useTheme } from "@material-ui/core/styles";
+import { useRouter } from "next/router";
 import MobileStepper from "@material-ui/core/MobileStepper";
 import Button from "@material-ui/core/Button";
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
+import styles from "../styles/components/Steeper.module.scss";
 
-const useStyles = makeStyles({
-  root: {
-    background: "none",
-    maxWidth: 600,
-    flexGrow: 1,
-    margin: "40px auto",
-  },
-});
-
-export default function DotsMobileStepper(props) {
-  const classes = useStyles();
+export default function Stepper(props) {
+  const router = useRouter();
   const theme = useTheme();
-  const [activeStep, setActiveStep] = React.useState(props.step);
+
+  console.log(props.actualStep);
+
+  const lastStep = props.actualStep - 1;
+  const nextStep = props.actualStep + 1;
+
+  const [activeStep, setActiveStep] = React.useState();
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    router.push("/screening/?currentQuestion=" + nextStep, {
+      shallow: true,
+    });
   };
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    router.push("/screening/?currentQuestion=" + lastStep, {
+      shallow: true,
+    });
   };
 
   return (
     <MobileStepper
-      variant="dots"
-      steps={6}
+      variant="text"
+      steps={props.stepsNumber}
       position="static"
       activeStep={activeStep}
-      className={classes.root}
+      className={styles.steeper}
       nextButton={
         <Button
-          size="small"
-          color="primary"
+          size="large"
           onClick={handleNext}
-          disabled={activeStep === 5}
+          color="primary"
+          disabled={true}
         >
           Next
           {theme.direction === "rtl" ? (
@@ -51,7 +56,7 @@ export default function DotsMobileStepper(props) {
       }
       backButton={
         <Button
-          size="small"
+          size="large"
           color="primary"
           onClick={handleBack}
           disabled={activeStep === 0}
