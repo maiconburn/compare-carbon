@@ -31,6 +31,7 @@ export default function Project() {
                 cert_authority={router.query.cert_authority}
                 credit_cost={router.query.credit_cost}
                 project_key_features={router.query.project_key_features}
+                project_page_link={router.query.project_page_link}
               />
             </Grid>
             <Grid item xs={5}>

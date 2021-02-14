@@ -1,3 +1,7 @@
 .company {
-  background: inherit;
+  padding: 50px 107px 50px 110px !important;
+  .companyLogo {
+    max-width: 200px;
+    margin: 40px auto 50px auto;
+  }
 }

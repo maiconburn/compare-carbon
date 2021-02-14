@@ -106,7 +106,8 @@ const Table = () => {
             &company_name=${rowData.company_entry.company_name}
             &cert_authority=${rowData.cert_authority}
             &credit_cost=${rowData.credit_cost}
-            &project_key_features=${rowData.project_key_features}`;
+            &project_key_features=${rowData.project_key_features}
+            &project_page_link=${rowData.project_page_link}`;
     return (
       <Link href={detailLink}>
         <a>

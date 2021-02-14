@@ -80,7 +80,13 @@ export default function TableProjetc(props) {
           <TableRow>
             <TableCell component="th" scope="row"></TableCell>
             <TableCell align="right">
-              <Button className={styles.buyNow}>Buy Now</Button>
+              <Button
+                className={styles.buyNow}
+                target="_blank"
+                href={props.project_page_link}
+              >
+                Buy Now
+              </Button>
             </TableCell>
           </TableRow>
         </TableBody>
