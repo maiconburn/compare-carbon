@@ -7,10 +7,14 @@ import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardMedia from "@material-ui/core/CardMedia";
 import TableProjetc from "../components/TableProjetc";
-
+import { useRouter } from "next/router";
 import styles from "../styles/Project.module.scss";
 
 export default function Project() {
+  const router = useRouter();
+
+  console.log(router.query.cert_authority);
+
   return (
     <>
       <NavBarInternal />
@@ -18,7 +22,16 @@ export default function Project() {
         <Box xs>
           <Grid container spacing={3}>
             <Grid item xs={7}>
-              <TableProjetc />
+              <TableProjetc
+                project_name={router.query.project_name}
+                project_description={router.query.project_description}
+                project_locations={router.query.project_locations}
+                project_type={router.query.project_type}
+                company_name={router.query.company_name}
+                cert_authority={router.query.cert_authority}
+                credit_cost={router.query.credit_cost}
+                project_key_features={router.query.project_key_features}
+              />
             </Grid>
             <Grid item xs={5}>
               <Card className={styles.imageBox}>
@@ -39,3 +52,17 @@ export default function Project() {
     </>
   );
 }
+
+/*
+<TableProjetc
+                project_name={project.project_name}
+                project_description={project.project_description}
+                project_locations={project.project_locations}
+                project_type={project.project_type}
+                company_name={project.company_name}
+                cert_authority={project.cert_authority}
+                credit_cost={project.credit_cost}
+                project_key_features={project.project_key_features}
+              />
+
+*/

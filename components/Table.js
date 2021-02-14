@@ -4,7 +4,7 @@ import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
-import { CustomerService } from "../service/CustomersService";
+import { ProjectsService } from "../service/ProjectsService";
 import { Dropdown } from "primereact/dropdown";
 import { Chip } from "primereact/chip";
 import Link from "next/link";
@@ -13,8 +13,8 @@ import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
 
 const Table = () => {
-  const [customers, setCustomers] = useState(null);
-  const [selectedCustomers, setSelectedCustomers] = useState(null);
+  const [projects, setProjects] = useState(null);
+  const [selectedProjects, setSelectedProjects] = useState(null);
   const [globalFilter, setGlobalFilter] = useState(null);
   const [selectedProjectContinent, setSelectedProjectContinent] = useState(
     null
@@ -66,10 +66,10 @@ const Table = () => {
     "Wren",
   ];
 
-  const customerService = new CustomerService();
+  const projectsService = new ProjectsService();
 
   useEffect(() => {
-    customerService.getCustomersLarge().then((data) => setCustomers(data));
+    projectsService.getProjects().then((data) => setProjects(data));
   }, []);
 
   const renderHeader = () => {
@@ -90,27 +90,26 @@ const Table = () => {
 
   const nameBodyTemplate = (rowData) => {
     console.log(rowData);
-    return (
-      <>
-        <span className="p-column-title">Name</span>
-        {rowData.project_name}
-      </>
-    );
+    return <>{rowData.project_name}</>;
   };
 
   const credit_costBodyTemplate = (rowData) => {
-    return (
-      <>
-        <span className="p-column-title">Price</span>
-        {"$ " + rowData.credit_cost.toFixed(2)}
-      </>
-    );
+    return <>{"$ " + rowData.credit_cost.toFixed(2)}</>;
   };
 
   const actionBodyTemplate = (rowData) => {
+    const detailLink = `/project?id=${rowData.id}
+            &project_name=${rowData.project_name}
+            &project_description=${rowData.project_description}
+            &project_locations=${rowData.project_locations}
+            &project_type=${rowData.project_type}
+            &company_name=${rowData.company_entry.company_name}
+            &cert_authority=${rowData.cert_authority}
+            &credit_cost=${rowData.credit_cost}
+            &project_key_features=${rowData.project_key_features}`;
     return (
-      <Link href={rowData.project_page_link}>
-        <a target="_blank">
+      <Link href={detailLink}>
+        <a>
           <Button
             label="Link"
             icon="pi pi-external-link"
@@ -126,7 +125,6 @@ const Table = () => {
   const project_typeBodyTemplate = (rowData) => {
     return (
       <>
-        <span className="p-column-title">Project Types</span>
         <span
           className={classNames(
             "customer-badge",
@@ -170,7 +168,6 @@ const Table = () => {
   const cert_authorityBodyTemplate = (rowData) => {
     return (
       <>
-        <span className="p-column-title">Cert Authority</span>
         <span
           className={classNames(
             "customer-badge",
@@ -221,7 +218,6 @@ const Table = () => {
   const companyBodyTemplate = (rowData) => {
     return (
       <>
-        <span className="p-column-title">Companies</span>
         <span
           className={classNames(
             "customer-badge",
@@ -265,7 +261,6 @@ const Table = () => {
   const projectContinentBodyTemplate = (rowData) => {
     return (
       <>
-        <span className="p-column-title">Project Location</span>
         <span
           className={classNames(
             "customer-badge",
@@ -445,14 +440,14 @@ const Table = () => {
       <div className="card">
         <DataTable
           ref={dt}
-          value={customers}
+          value={projects}
           header={header}
-          className="p-datatable-customers"
+          className="p-datatable-Projects"
           dataKey="id"
           rowHover
           globalFilter={globalFilter}
-          selection={selectedCustomers}
-          onSelectionChange={(e) => setSelectedCustomers(e.value)}
+          selection={selectedProjects}
+          onSelectionChange={(e) => setSelectedProjects(e.value)}
           paginator
           rows={10}
           emptyMessage="No projects found"

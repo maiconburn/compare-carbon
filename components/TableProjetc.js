@@ -10,14 +10,14 @@ import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
 import styles from "../styles/components/TableProject.module.scss";
 
-export default function TableProjetc() {
+export default function TableProjetc(props) {
   return (
     <TableContainer component={Paper}>
       <Table className={styles.table} aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell>Project’s Name</TableCell>
-            <TableCell align="right">Regenerative agroforestry</TableCell>
+            <TableCell align="right">{props.project_name}</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -25,43 +25,37 @@ export default function TableProjetc() {
             <TableCell component="th" scope="row">
               Project’s Description
             </TableCell>
-            <TableCell align="right">
-              The organization behind this project, The Future Forest Company,
-              was formed to sequester as much carbon as possible in forest land.
-              They buy degraded, unloved land and re-forest and restore it back
-              to health using agroforestry methods including rotational grazing
-              of livestock and recycling forest waste into biochar.
-            </TableCell>
+            <TableCell align="right">{props.project_description}</TableCell>
           </TableRow>
           <TableRow>
             <TableCell component="th" scope="row">
               Project’s Location
             </TableCell>
-            <TableCell align="right">Scotland</TableCell>
+            <TableCell align="right">{props.project_locations}</TableCell>
           </TableRow>
           <TableRow>
             <TableCell component="th" scope="row">
               Project’s Type
             </TableCell>
-            <TableCell align="right">Agroforestry</TableCell>
+            <TableCell align="right">{props.project_type}</TableCell>
           </TableRow>
           <TableRow>
             <TableCell component="th" scope="row">
               Vendor’s Name
             </TableCell>
-            <TableCell align="right">Wren</TableCell>
+            <TableCell align="right">{props.company_name}</TableCell>
           </TableRow>
           <TableRow>
             <TableCell component="th" scope="row">
               Certificate Authority
             </TableCell>
-            <TableCell align="right">Self-assessed</TableCell>
+            <TableCell align="right">{props.cert_authority}</TableCell>
           </TableRow>
           <TableRow>
             <TableCell component="th" scope="row">
               Price
             </TableCell>
-            <TableCell align="right">31.25$</TableCell>
+            <TableCell align="right">{props.credit_cost}</TableCell>
           </TableRow>
           <TableRow>
             <TableCell component="th" scope="row">
@@ -79,9 +73,7 @@ export default function TableProjetc() {
             </TableCell>
             <TableCell align="right">
               <ul>
-                <li>Provides Opportunities for Sustainable local farming</li>
-                <li>Hosts a huge array of wildlife </li>
-                <li>Aims to plant one million trees in 2021</li>
+                <li>{props.project_key_features}</li>
               </ul>
             </TableCell>
           </TableRow>
