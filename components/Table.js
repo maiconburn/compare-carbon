@@ -217,6 +217,8 @@ const Table = () => {
   //Company
 
   const companyBodyTemplate = (rowData) => {
+    console.log(rowData.company_entry);
+    const companyLogo = `https://api.carboncertify.com${rowData.company_entry.company_logo[0].url}`;
     return (
       <>
         <span
@@ -225,7 +227,7 @@ const Table = () => {
             "company-" + rowData.company_entry.company_name
           )}
         >
-          {rowData.company_entry.company_name}
+          <img src={companyLogo} width="100" />
         </span>
       </>
     );
