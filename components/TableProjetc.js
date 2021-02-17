@@ -29,7 +29,7 @@ export default function TableProjetc(props) {
           </TableRow>
           <TableRow>
             <TableCell component="th" scope="row">
-              Project Location
+              Project Location/s
             </TableCell>
             <TableCell align="right">{props.project_locations}</TableCell>
           </TableRow>
