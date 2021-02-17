@@ -16,32 +16,32 @@ export default function TableProjetc(props) {
       <Table className={styles.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Project’s Name</TableCell>
+            <TableCell>Project Name</TableCell>
             <TableCell align="right">{props.project_name}</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           <TableRow>
             <TableCell component="th" scope="row">
-              Project’s Description
+              Project Description
             </TableCell>
             <TableCell align="right">{props.project_description}</TableCell>
           </TableRow>
           <TableRow>
             <TableCell component="th" scope="row">
-              Project’s Location
+              Project Location
             </TableCell>
             <TableCell align="right">{props.project_locations}</TableCell>
           </TableRow>
           <TableRow>
             <TableCell component="th" scope="row">
-              Project’s Type
+              Project Type
             </TableCell>
             <TableCell align="right">{props.project_type}</TableCell>
           </TableRow>
           <TableRow>
             <TableCell component="th" scope="row">
-              Vendor’s Name
+              Vendor Name
             </TableCell>
             <TableCell align="right">{props.company_name}</TableCell>
           </TableRow>
