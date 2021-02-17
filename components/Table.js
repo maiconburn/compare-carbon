@@ -102,7 +102,7 @@ const Table = () => {
             &project_name=${rowData.project_name}
             &project_description=${rowData.project_description}
             &project_locations=${rowData.project_locations}
-            &project_type=${rowData.project_type}
+            &project_type_detailed=${rowData.project_type_detailed}
             &company_name=${rowData.company_entry.company_name}
             &cert_authority=${rowData.cert_authority}
             &credit_cost=${rowData.credit_cost}

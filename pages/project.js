@@ -26,7 +26,7 @@ export default function Project() {
                 project_name={router.query.project_name}
                 project_description={router.query.project_description}
                 project_locations={router.query.project_locations}
-                project_type={router.query.project_type}
+                project_type_detailed={router.query.project_type_detailed}
                 company_name={router.query.company_name}
                 cert_authority={router.query.cert_authority}
                 credit_cost={router.query.credit_cost}
