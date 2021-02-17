@@ -37,7 +37,7 @@ export default function TableProjetc(props) {
             <TableCell component="th" scope="row">
               Project Type
             </TableCell>
-            <TableCell align="right">{props.project_type}</TableCell>
+            <TableCell align="right">{props.project_type_detailed}</TableCell>
           </TableRow>
           <TableRow>
             <TableCell component="th" scope="row">
