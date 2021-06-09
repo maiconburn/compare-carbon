@@ -11,6 +11,7 @@ import Paper from "@material-ui/core/Paper";
 import styles from "../styles/components/TableProject.module.scss";
 
 export default function TableProjetc(props) {
+  console.log("Teste:" + props.project_key_features.lenght);
   return (
     <TableContainer component={Paper}>
       <Table className={styles.table} aria-label="simple table">
@@ -67,7 +68,13 @@ export default function TableProjetc(props) {
               </Link>
             </TableCell>
           </TableRow>
-          <TableRow>
+          <TableRow
+            className={
+              props.project_key_features.lenght > 0
+                ? props.project_key_features
+                : "display:none"
+            }
+          >
             <TableCell component="th" scope="row">
               Key Features
             </TableCell>

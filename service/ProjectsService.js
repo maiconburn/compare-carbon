@@ -7,8 +7,6 @@ export class ProjectsService {
       .then((res) => res.data);
   }
   getProjects() {
-    return axios
-      .get("https://api.carboncertify.com/projects")
-      .then((res) => res.data);
+    return axios.get("http://localhost:3000/api/hello").then((res) => res.data);
   }
 }
